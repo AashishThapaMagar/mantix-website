@@ -7,6 +7,7 @@ export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const [activeProduct, setActiveProduct] = useState(0);
+  const [formStatus, setFormStatus] = useState("idle");
   const cursorRef = useRef<HTMLDivElement>(null);
   const cursorDotRef = useRef<HTMLDivElement>(null);
 
@@ -62,7 +63,30 @@ export default function Home() {
       accent: "#22c55e",
     },
   ];
+async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  e.preventDefault();
+  const form = e.currentTarget;
+  setFormStatus("sending");
 
+  const formData = new FormData(form);
+  formData.append("access_key", "5b5e889c-93c0-41d7-9e0a-279f4a738398");
+
+  try {
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+    const data = await res.json();
+    if (data.success) {
+      setFormStatus("done");
+      form.reset();
+    } else {
+      setFormStatus("error");
+    }
+  } catch {
+    setFormStatus("error");
+  }
+}
   return (
     <>
       <style>{`
@@ -682,7 +706,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ━━━━━━━━━━━━━━━━━━━ EARLY ACCESS */}
+     {/* ━━━━━━━━━━━━━━━━━━━ EARLY ACCESS */}
       <section id="early-access" style={{ background: "#05080a", padding: "140px 100px", borderTop: "1px solid rgba(201,168,76,0.07)" }}>
         <div style={{ maxWidth: "720px", margin: "0 auto" }}>
 
@@ -720,26 +744,29 @@ export default function Home() {
               }} />
             ))}
 
-            <div style={{ display: "grid", gap: "36px" }}>
+            <form onSubmit={handleSubmit} style={{ display: "grid", gap: "36px" }}>
+              {/* Honeypot — hidden field that blocks spam bots */}
+              <input type="checkbox" name="botcheck" style={{ display: "none" }} tabIndex={-1} aria-hidden="true" />
+
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px" }} className="two-col">
                 <div>
                   <label className="jost" style={{ fontSize: "0.5rem", letterSpacing: "0.3em", color: "#282828", textTransform: "uppercase", display: "block", marginBottom: "6px" }}>Full Name</label>
-                  <input className="form-field" placeholder="Your name" />
+                  <input name="name" required className="form-field" placeholder="Your name" />
                 </div>
                 <div>
                   <label className="jost" style={{ fontSize: "0.5rem", letterSpacing: "0.3em", color: "#282828", textTransform: "uppercase", display: "block", marginBottom: "6px" }}>Phone</label>
-                  <input className="form-field" placeholder="+977 ···" />
+                  <input name="phone" required className="form-field" placeholder="+977 ···" />
                 </div>
               </div>
 
               <div>
                 <label className="jost" style={{ fontSize: "0.5rem", letterSpacing: "0.3em", color: "#282828", textTransform: "uppercase", display: "block", marginBottom: "6px" }}>City / District</label>
-                <input className="form-field" placeholder="Kathmandu, Pokhara..." />
+                <input name="city" className="form-field" placeholder="Kathmandu, Pokhara..." />
               </div>
 
               <div>
                 <label className="jost" style={{ fontSize: "0.5rem", letterSpacing: "0.3em", color: "#282828", textTransform: "uppercase", display: "block", marginBottom: "6px" }}>Your Design</label>
-                <select className="form-field" style={{ appearance: "none" }}>
+                <select name="design" required className="form-field" style={{ appearance: "none" }}>
                   <option value="">Select a design</option>
                   <option>01 — The Phantom (Black Oversized) · Rs. 1,499</option>
                   <option>02 — The Ghost (White Essential) · Rs. 1,399</option>
@@ -750,7 +777,7 @@ export default function Home() {
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px" }} className="two-col">
                 <div>
                   <label className="jost" style={{ fontSize: "0.5rem", letterSpacing: "0.3em", color: "#282828", textTransform: "uppercase", display: "block", marginBottom: "6px" }}>Size</label>
-                  <select className="form-field" style={{ appearance: "none" }}>
+                  <select name="size" required className="form-field" style={{ appearance: "none" }}>
                     <option value="">Select size</option>
                     {["S", "M", "L", "XL", "XXL"].map(s => <option key={s}>{s}</option>)}
                   </select>
@@ -760,19 +787,30 @@ export default function Home() {
 
               <div>
                 <label className="jost" style={{ fontSize: "0.5rem", letterSpacing: "0.3em", color: "#282828", textTransform: "uppercase", display: "block", marginBottom: "6px" }}>Your Vision (optional)</label>
-                <textarea className="form-field" placeholder="Design, color, or delivery suggestion..." style={{ minHeight: "80px", resize: "none" }} />
+                <textarea name="vision" className="form-field" placeholder="Design, color, or delivery suggestion..." style={{ minHeight: "80px", resize: "none" }} />
               </div>
 
               <div style={{ paddingTop: "12px" }}>
-                <button type="button" className="cta-gold" style={{ width: "100%", justifyContent: "center", fontSize: "0.5rem" }}>
-                  Submit My Early Access Interest →
+                <button type="submit" disabled={formStatus === "sending"} className="cta-gold" style={{ width: "100%", justifyContent: "center", fontSize: "0.5rem" }}>
+                  {formStatus === "sending" ? "Sending..." : "Submit My Early Access Interest →"}
                 </button>
               </div>
+
+              {formStatus === "done" && (
+                <div className="jost" style={{ textAlign: "center", color: "#c9a84c", fontSize: "0.7rem", letterSpacing: "0.1em" }}>
+                  You&apos;re on the list. We&apos;ll be in touch as the drop gets closer.
+                </div>
+              )}
+              {formStatus === "error" && (
+                <div className="jost" style={{ textAlign: "center", color: "#d98a6a", fontSize: "0.7rem", letterSpacing: "0.1em" }}>
+                  Something went wrong — please try again.
+                </div>
+              )}
 
               <div className="jost" style={{ fontSize: "0.48rem", color: "#1e1e1e", letterSpacing: "0.2em", textAlign: "center", textTransform: "uppercase" }}>
                 Your information is private and protected · MANTIX · Nepal
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </section>
