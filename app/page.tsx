@@ -8,6 +8,9 @@ export default function Home() {
   const [loaded, setLoaded] = useState(false);
   const [activeProduct, setActiveProduct] = useState(0);
   const [formStatus, setFormStatus] = useState("idle");
+  const [vibe, setVibe] = useState("");
+  const [matchResult, setMatchResult] = useState("");
+  const [matchStatus, setMatchStatus] = useState("idle");
   const cursorRef = useRef<HTMLDivElement>(null);
   const cursorDotRef = useRef<HTMLDivElement>(null);
 
@@ -25,6 +28,30 @@ export default function Home() {
       }
     };
     window.addEventListener("mousemove", onMove);
+
+    async function handleStyleMatch() {
+    if (!vibe.trim() || matchStatus === "loading") return;
+    setMatchStatus("loading");
+    setMatchResult("");
+    try {
+      const res = await fetch("/api/style-match", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ vibe }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setMatchStatus("error");
+        setMatchResult(data.error || "Something went wrong. Please try again.");
+        return;
+      }
+      setMatchStatus("done");
+      setMatchResult(data.recommendation);
+    } catch {
+      setMatchStatus("error");
+      setMatchResult("Could not reach the AI. Please try again.");
+    }
+  }
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("mousemove", onMove);
@@ -63,30 +90,83 @@ export default function Home() {
       accent: "#22c55e",
     },
   ];
-async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-  e.preventDefault();
-  const form = e.currentTarget;
-  setFormStatus("sending");
 
-  const formData = new FormData(form);
-  formData.append("access_key", "5b5e889c-93c0-41d7-9e0a-279f4a738398");
+  const faqs = [
+    {
+      q: "When does the first MANTIX drop launch?",
+      a: "MANTIX launches its first limited drop in 2026. Join the early-access waitlist to be notified first and lock in early pricing before we go public.",
+    },
+    {
+      q: "How do I know my size?",
+      a: "All three pieces come in S, M, L, XL, and XXL. The Phantom and The Venom are oversized fits; The Ghost can be worn regular or oversized. Between sizes and want a relaxed look? Size up.",
+    },
+    {
+      q: "Where do you deliver?",
+      a: "We deliver across Nepal, including Kathmandu, Pokhara, and other major cities. Tell us your city when you reserve and we'll confirm delivery details as the drop gets closer.",
+    },
+    {
+      q: "How can I pay?",
+      a: "For the first drop we plan to support cash on delivery alongside popular digital wallets used in Nepal. Final options are confirmed with early-access members before launch.",
+    },
+    {
+      q: "What makes MANTIX different?",
+      a: "Every MANTIX piece is an original, intentional design — not a generic print. We start precise with a small limited drop, keep premium quality affordable, and let customer feedback shape future collections.",
+    },
+    {
+      q: "Is this a limited release?",
+      a: "Yes. The first collection is a limited test drop of three signature pieces. Early-access members get first pick of designs and sizes.",
+    },
+  ];
 
-  try {
-    const res = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
-    const data = await res.json();
-    if (data.success) {
-      setFormStatus("done");
-      form.reset();
-    } else {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    setFormStatus("sending");
+
+    const formData = new FormData(form);
+    formData.append("access_key", "5b5e889c-93c0-41d7-9e0a-279f4a738398");
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+      if (data.success) {
+        setFormStatus("done");
+        form.reset();
+      } else {
+        setFormStatus("error");
+      }
+    } catch {
       setFormStatus("error");
     }
-  } catch {
-    setFormStatus("error");
   }
-}
+
+  async function handleStyleMatch() {
+    if (!vibe.trim() || matchStatus === "loading") return;
+    setMatchStatus("loading");
+    setMatchResult("");
+    try {
+      const res = await fetch("/api/style-match", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ vibe }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setMatchStatus("error");
+        setMatchResult(data.error || "Something went wrong. Please try again.");
+        return;
+      }
+      setMatchStatus("done");
+      setMatchResult(data.recommendation);
+    } catch {
+      setMatchStatus("error");
+      setMatchResult("Could not reach the AI. Please try again.");
+    }
+  }
+
   return (
     <>
       <style>{`
@@ -404,7 +484,7 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
                 marginTop: "44px", marginBottom: "52px",
                 letterSpacing: "0.04em",
               }}>
-                Not just a T-shirt. A declaration. MANTIX launches with three precision-crafted pieces built for Nepal's next generation — where streetwear meets sharp identity.
+                Not just a T-shirt. A declaration. MANTIX launches with three precision-crafted pieces built for Nepal&apos;s next generation — where streetwear meets sharp identity.
               </p>
 
               <div className={`reveal ${loaded ? "in" : ""} d3`} style={{ display: "flex", gap: "16px", flexWrap: "wrap", marginBottom: "72px" }}>
@@ -522,7 +602,7 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
               </h2>
             </div>
             <p className="jost" style={{ maxWidth: "320px", color: "#303030", fontSize: "0.84rem", lineHeight: 1.95, fontWeight: 300, letterSpacing: "0.04em" }}>
-              Each design carries a name, a character, a statement. These aren't just shirts — they're the first chapter of something much larger.
+              Each design carries a name, a character, a statement. These aren&apos;t just shirts — they&apos;re the first chapter of something much larger.
             </p>
           </div>
 
@@ -592,7 +672,7 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
                   {products[activeProduct].id} / 03 — Limited Edition
                 </div>
                 <div className="cormorant" style={{ fontSize: "1rem", fontStyle: "italic", color: "#c9a84c", marginBottom: "10px", letterSpacing: "0.1em" }}>
-                  "{products[activeProduct].sub}"
+                  &ldquo;{products[activeProduct].sub}&rdquo;
                 </div>
                 <h3 className="cormorant" style={{ fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 600, color: "#f5f3ef", lineHeight: 1.05, marginBottom: "28px" }}>
                   {products[activeProduct].name}
@@ -631,6 +711,54 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         </div>
       </section>
 
+      {/* ━━━━━━━━━━━━━━━━━━━ AI STYLE MATCH */}
+      <section id="style-match" style={{ background: "#06080a", padding: "140px 100px", borderTop: "1px solid rgba(201,168,76,0.07)", borderBottom: "1px solid rgba(201,168,76,0.07)" }}>
+        <div style={{ maxWidth: "760px", margin: "0 auto", textAlign: "center" }}>
+          <div className="eyebrow" style={{ justifyContent: "center", marginBottom: "28px" }}>AI Style Match</div>
+          <h2 className="cormorant" style={{ fontSize: "clamp(40px, 6vw, 76px)", fontWeight: 300, fontStyle: "italic", color: "#f5f3ef", lineHeight: 0.95, marginBottom: "24px" }}>
+            Find your<br /><em style={{ color: "#c9a84c" }}>piece.</em>
+          </h2>
+          <p className="jost" style={{ color: "#8a8a8a", fontSize: "0.9rem", lineHeight: 1.9, fontWeight: 300, maxWidth: "440px", margin: "0 auto 48px" }}>
+            Describe your style or mood, and our AI matches you with the MANTIX piece that fits you best.
+          </p>
+
+          <div style={{ marginBottom: "24px" }}>
+            <input
+              className="form-field"
+              style={{ textAlign: "center", borderBottom: "1px solid rgba(201,168,76,0.25)" }}
+              placeholder="e.g. minimal, all-black, low-key..."
+              value={vibe}
+              onChange={(e) => setVibe(e.target.value)}
+              onKeyDown={(e) => { if (e.key === "Enter") handleStyleMatch(); }}
+            />
+          </div>
+
+          <button
+            type="button"
+            className="cta-gold"
+            onClick={handleStyleMatch}
+            disabled={matchStatus === "loading"}
+            style={{ justifyContent: "center", fontSize: "0.5rem" }}
+          >
+            {matchStatus === "loading" ? "Matching..." : "Find My Piece →"}
+          </button>
+
+          {matchStatus === "done" && (
+            <div style={{ marginTop: "48px", padding: "40px", border: "1px solid rgba(201,168,76,0.18)", background: "rgba(201,168,76,0.02)" }}>
+              <div className="syncopate" style={{ fontSize: "0.4rem", letterSpacing: "0.5em", color: "rgba(201,168,76,0.5)", textTransform: "uppercase", marginBottom: "18px" }}>Your Match</div>
+              <p className="cormorant" style={{ fontSize: "clamp(18px, 2.4vw, 26px)", fontStyle: "italic", color: "#f5f3ef", lineHeight: 1.5 }}>
+                {matchResult}
+              </p>
+            </div>
+          )}
+          {matchStatus === "error" && (
+            <div className="jost" style={{ marginTop: "32px", color: "#d98a6a", fontSize: "0.8rem", letterSpacing: "0.05em" }}>
+              {matchResult}
+            </div>
+          )}
+        </div>
+      </section>
+
       {/* ━━━━━━━━━━━━━━━━━━━ QUOTE INTERLUDE */}
       <section style={{
         background: "#06080a",
@@ -654,7 +782,7 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
             fontSize: "clamp(30px, 5vw, 64px)", fontWeight: 300, fontStyle: "italic",
             color: "#f5f3ef", lineHeight: 1.22, letterSpacing: "-0.01em",
           }}>
-            "We don't make T-shirts.<br />We make&nbsp;<em style={{ color: "#c9a84c" }}>statements</em>&nbsp;you wear."
+            &ldquo;We don&apos;t make T-shirts.<br />We make&nbsp;<em style={{ color: "#c9a84c" }}>statements</em>&nbsp;you wear.&rdquo;
           </blockquote>
           <hr className="gold-hr" style={{ margin: "44px auto", width: "60px", background: "linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent)" }} />
           <div className="jost" style={{ fontSize: "0.6rem", letterSpacing: "0.36em", color: "#282828", textTransform: "uppercase" }}>
@@ -675,7 +803,7 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
               </h2>
               <hr className="gold-hr" style={{ marginBottom: "32px" }} />
               <p className="jost" style={{ color: "#303030", fontSize: "0.84rem", lineHeight: 1.95, fontWeight: 300 }}>
-                MANTIX is Nepal's next streetwear identity. We start precise, scale with purpose, and let intelligence — artificial and human — guide every future collection.
+                MANTIX is Nepal&apos;s next streetwear identity. We start precise, scale with purpose, and let intelligence — artificial and human — guide every future collection.
               </p>
               <div style={{ marginTop: "48px" }}>
                 <Image src="/MANTIX_LOGO.png" alt="MANTIX" width={140} height={140}
@@ -706,7 +834,51 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         </div>
       </section>
 
-     {/* ━━━━━━━━━━━━━━━━━━━ EARLY ACCESS */}
+      {/* ━━━━━━━━━━━━━━━━━━━ FAQ */}
+      <section id="faq" style={{ background: "#060606", padding: "140px 100px" }}>
+        <div style={{ maxWidth: "1480px", margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "0.7fr 1.3fr", gap: "80px", alignItems: "start" }} className="two-col">
+
+            <div style={{ position: "sticky", top: "100px" }}>
+              <div className="eyebrow" style={{ marginBottom: "28px" }}>Questions</div>
+              <h2 className="cormorant" style={{ fontSize: "clamp(40px, 5vw, 68px)", fontWeight: 300, fontStyle: "italic", color: "#f5f3ef", lineHeight: 0.95 }}>
+                Good to<br /><span style={{ color: "#c9a84c" }}>know.</span>
+              </h2>
+            </div>
+
+            <div>
+              {faqs.map((f, i) => (
+                <details key={i} className="feature-row" style={{ display: "block", padding: "28px 0" }}>
+                  <summary className="cormorant" style={{ fontSize: "1.35rem", fontWeight: 600, color: "#d8d5d0", cursor: "pointer", listStyle: "none" }}>
+                    {f.q}
+                  </summary>
+                  <p className="jost" style={{ color: "#8a8a8a", fontSize: "0.86rem", lineHeight: 1.9, fontWeight: 300, marginTop: "14px" }}>
+                    {f.a}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* FAQ structured data — read by Google + AI assistants */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            }),
+          }}
+        />
+      </section>
+
+      {/* ━━━━━━━━━━━━━━━━━━━ EARLY ACCESS */}
       <section id="early-access" style={{ background: "#05080a", padding: "140px 100px", borderTop: "1px solid rgba(201,168,76,0.07)" }}>
         <div style={{ maxWidth: "720px", margin: "0 auto" }}>
 
@@ -827,7 +999,7 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
                 <div className="syncopate" style={{ fontSize: "0.85rem", color: "#c9a84c", letterSpacing: "0.34em" }}>MANTIX</div>
               </div>
               <p className="cormorant" style={{ fontSize: "1.05rem", fontStyle: "italic", color: "#282828", lineHeight: 1.8, maxWidth: "260px" }}>
-                Smart Fashion. Sharp Identity.<br />Nepal's next streetwear story — starting now.
+                Smart Fashion. Sharp Identity.<br />Nepal&apos;s next streetwear story — starting now.
               </p>
             </div>
             {[
@@ -839,10 +1011,7 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
                 <div className="syncopate" style={{ fontSize: "0.38rem", letterSpacing: "0.44em", color: "#c9a84c", textTransform: "uppercase", marginBottom: "24px" }}>{col.title}</div>
                 {col.links.map(l => (
                   <div key={l} style={{ marginBottom: "16px" }}>
-                    <a href="#" className="jost" style={{ color: "#1e1e1e", textDecoration: "none", fontSize: "0.8rem", fontWeight: 300, letterSpacing: "0.06em", transition: "color 0.25s" }}
-                      onMouseOver={e => (e.currentTarget.style.color = "#c9a84c")}
-                      onMouseOut={e => (e.currentTarget.style.color = "#1e1e1e")}
-                    >{l}</a>
+                    <a href="#" className="jost" style={{ color: "#6a6a6a", textDecoration: "none", fontSize: "0.8rem", fontWeight: 300, letterSpacing: "0.06em" }}>{l}</a>
                   </div>
                 ))}
               </div>
@@ -850,8 +1019,8 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
           </div>
 
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", paddingTop: "28px", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "12px" }}>
-            <span className="jost" style={{ fontSize: "0.58rem", color: "#181818", letterSpacing: "0.2em" }}>© 2026 MANTIX. All rights reserved.</span>
-            <span className="jost" style={{ fontSize: "0.58rem", color: "#181818", letterSpacing: "0.2em" }}>Building smart fashion — step by step.</span>
+            <span className="jost" style={{ fontSize: "0.58rem", color: "#5a5a5a", letterSpacing: "0.2em" }}>© 2026 MANTIX. All rights reserved.</span>
+            <span className="jost" style={{ fontSize: "0.58rem", color: "#5a5a5a", letterSpacing: "0.2em" }}>Building smart fashion — step by step.</span>
           </div>
         </div>
       </footer>
