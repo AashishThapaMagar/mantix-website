@@ -351,7 +351,7 @@ export default function Home() {
           100% { background-position: 0px 0px; }
         }
 
-  @media (max-width: 900px) {
+ @media (max-width: 900px) {
   html,
   body {
     width: 100% !important;
@@ -427,12 +427,6 @@ export default function Home() {
     width: 20px !important;
   }
 
-  .cormorant {
-    max-width: 100% !important;
-    word-break: normal !important;
-    overflow-wrap: normal !important;
-  }
-
   .cta-gold,
   .cta-outline {
     width: 100% !important;
@@ -481,7 +475,7 @@ export default function Home() {
     padding-bottom: 90px !important;
   }
 
-  /* HERO full mobile reset */
+  /* HERO mobile reset */
   section:first-of-type {
     min-height: auto !important;
     width: 100% !important;
@@ -514,9 +508,9 @@ export default function Home() {
     display: none !important;
   }
 
-  /* Hero title */
-  section:first-of-type .cormorant {
-    font-size: clamp(58px, 17vw, 78px) !important;
+  /* Hero title only */
+  section:first-of-type .reveal.d2 > .cormorant {
+    font-size: clamp(54px, 16vw, 74px) !important;
     line-height: 0.95 !important;
     max-width: 100% !important;
   }
@@ -558,17 +552,40 @@ export default function Home() {
     white-space: normal !important;
   }
 
-  /* Hero stats */
-  section:first-of-type div[style*="borderTop"] {
+  /* Beautiful mobile hero stats */
+  section:first-of-type .reveal.d4 {
     display: grid !important;
     grid-template-columns: 1fr !important;
     width: 100% !important;
-    gap: 22px !important;
+    gap: 14px !important;
+    padding-top: 32px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
   }
 
-  section:first-of-type div[style*="borderLeft"] {
+  section:first-of-type .reveal.d4 > div {
+    width: 100% !important;
+    padding: 22px 20px !important;
     border-left: none !important;
-    padding-left: 0 !important;
+    border: 1px solid rgba(74, 222, 128, 0.12) !important;
+    background: rgba(74, 222, 128, 0.025) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 18px !important;
+  }
+
+  section:first-of-type .reveal.d4 .cormorant {
+    font-size: 2.35rem !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  section:first-of-type .reveal.d4 .jost {
+    font-size: 0.58rem !important;
+    letter-spacing: 0.18em !important;
+    line-height: 1.5 !important;
+    text-align: right !important;
+    max-width: 150px !important;
   }
 
   /* Collection tab row becomes horizontal scroll */
@@ -650,8 +667,8 @@ export default function Home() {
     padding: 105px 24px 64px !important;
   }
 
-  section:first-of-type .cormorant {
-    font-size: clamp(54px, 16vw, 72px) !important;
+  section:first-of-type .reveal.d2 > .cormorant {
+    font-size: clamp(50px, 15vw, 68px) !important;
   }
 
   section:first-of-type p {
@@ -696,8 +713,21 @@ export default function Home() {
     padding-right: 20px !important;
   }
 
-  section:first-of-type .cormorant {
-    font-size: clamp(48px, 15vw, 66px) !important;
+  section:first-of-type .reveal.d2 > .cormorant {
+    font-size: clamp(46px, 14vw, 62px) !important;
+  }
+
+  section:first-of-type .reveal.d4 > div {
+    padding: 18px 16px !important;
+  }
+
+  section:first-of-type .reveal.d4 .cormorant {
+    font-size: 2rem !important;
+  }
+
+  section:first-of-type .reveal.d4 .jost {
+    font-size: 0.5rem !important;
+    letter-spacing: 0.14em !important;
   }
 }
       `}</style>
