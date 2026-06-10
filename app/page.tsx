@@ -351,12 +351,172 @@ export default function Home() {
           100% { background-position: 0px 0px; }
         }
 
-        @media (max-width: 900px) {
-          .hide-sm { display: none !important; }
-          .two-col { grid-template-columns: 1fr !important; }
-          .three-col { grid-template-columns: 1fr !important; }
-          html, body { cursor: auto !important; }
-        }
+      @media (max-width: 900px) {
+  html,
+  body {
+    cursor: auto !important;
+    overflow-x: hidden !important;
+    background-attachment: scroll !important;
+  }
+
+  a,
+  button {
+    cursor: pointer !important;
+  }
+
+  .hide-sm {
+    display: none !important;
+  }
+
+  .two-col,
+  .three-col {
+    grid-template-columns: 1fr !important;
+  }
+
+  section {
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+  }
+
+  header {
+    padding: 0 20px !important;
+    height: 66px !important;
+  }
+
+  header img {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .syncopate {
+    letter-spacing: 0.2em !important;
+  }
+
+  .nav-link {
+    font-size: 0.55rem !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  .eyebrow {
+    font-size: 0.42rem !important;
+    letter-spacing: 0.24em !important;
+    gap: 10px !important;
+    flex-wrap: wrap !important;
+  }
+
+  .eyebrow::before {
+    width: 20px !important;
+  }
+
+  .cormorant {
+    word-break: normal !important;
+  }
+
+  .cta-gold,
+  .cta-outline {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 16px 18px !important;
+    font-size: 0.44rem !important;
+    letter-spacing: 0.2em !important;
+    text-align: center !important;
+  }
+
+  .form-field {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+  }
+
+  .product-tab {
+    font-size: 0.38rem !important;
+    letter-spacing: 0.2em !important;
+    white-space: nowrap !important;
+  }
+
+  .feature-row {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    padding: 28px 0 !important;
+  }
+
+  .marquee-track {
+    animation-duration: 42s !important;
+  }
+}
+
+@media (max-width: 640px) {
+  section {
+    padding-top: 90px !important;
+    padding-bottom: 90px !important;
+  }
+
+  h1,
+  h2,
+  h3 {
+    max-width: 100% !important;
+  }
+
+  .cormorant {
+    line-height: 1 !important;
+  }
+
+  .intro-label {
+    font-size: 0.42rem !important;
+    letter-spacing: 0.32em !important;
+  }
+
+  .intro-line {
+    max-width: 140px !important;
+  }
+
+  .gold-hr {
+    width: 36px !important;
+  }
+
+  .form-field::placeholder {
+    font-size: 0.9rem !important;
+  }
+
+  details summary {
+    line-height: 1.35 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 0 16px !important;
+  }
+
+  section {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .syncopate {
+    letter-spacing: 0.16em !important;
+  }
+
+  .eyebrow {
+    font-size: 0.38rem !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  .cta-gold,
+  .cta-outline {
+    font-size: 0.4rem !important;
+    letter-spacing: 0.16em !important;
+    padding: 15px 16px !important;
+  }
+
+  .product-tab {
+    font-size: 0.34rem !important;
+    letter-spacing: 0.14em !important;
+  }
+
+  .form-field {
+    font-size: 16px !important;
+  }
+}
       `}</style>
 
       {/* Film grain */}
