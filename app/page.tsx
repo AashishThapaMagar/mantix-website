@@ -351,12 +351,20 @@ export default function Home() {
           100% { background-position: 0px 0px; }
         }
 
-      @media (max-width: 900px) {
+    @media (max-width: 900px) {
   html,
   body {
-    cursor: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
     overflow-x: hidden !important;
+    cursor: auto !important;
     background-attachment: scroll !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    max-width: 100%;
   }
 
   a,
@@ -373,33 +381,40 @@ export default function Home() {
     grid-template-columns: 1fr !important;
   }
 
-  section {
-    padding-left: 22px !important;
-    padding-right: 22px !important;
+  header {
+    padding: 0 18px !important;
+    height: 76px !important;
   }
 
-  header {
-    padding: 0 20px !important;
-    height: 66px !important;
+  header a {
+    max-width: 100% !important;
   }
 
   header img {
-    width: 36px !important;
-    height: 36px !important;
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  section {
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+    overflow-x: hidden !important;
+  }
+
+  section > div {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
   .syncopate {
-    letter-spacing: 0.2em !important;
-  }
-
-  .nav-link {
-    font-size: 0.55rem !important;
     letter-spacing: 0.18em !important;
   }
 
   .eyebrow {
     font-size: 0.42rem !important;
-    letter-spacing: 0.24em !important;
+    letter-spacing: 0.2em !important;
     gap: 10px !important;
     flex-wrap: wrap !important;
   }
@@ -409,17 +424,21 @@ export default function Home() {
   }
 
   .cormorant {
+    max-width: 100% !important;
     word-break: normal !important;
+    overflow-wrap: normal !important;
   }
 
   .cta-gold,
   .cta-outline {
     width: 100% !important;
+    max-width: 100% !important;
     justify-content: center !important;
     padding: 16px 18px !important;
-    font-size: 0.44rem !important;
-    letter-spacing: 0.2em !important;
+    font-size: 0.42rem !important;
+    letter-spacing: 0.18em !important;
     text-align: center !important;
+    white-space: normal !important;
   }
 
   .form-field {
@@ -428,9 +447,10 @@ export default function Home() {
   }
 
   .product-tab {
-    font-size: 0.38rem !important;
-    letter-spacing: 0.2em !important;
+    font-size: 0.36rem !important;
+    letter-spacing: 0.14em !important;
     white-space: nowrap !important;
+    flex: 0 0 auto !important;
   }
 
   .feature-row {
@@ -450,19 +470,94 @@ export default function Home() {
     padding-bottom: 90px !important;
   }
 
+  /* Fix hero inner container */
+  section:first-of-type > div[style*="padding"] {
+    padding: 110px 22px 70px !important;
+  }
+
+  /* Fix hero grid */
+  section:first-of-type .two-col {
+    gap: 44px !important;
+  }
+
+  /* Hide big logo/orbit visual on mobile hero */
+  section:first-of-type .two-col > div:nth-child(2) {
+    display: none !important;
+  }
+
+  /* Hero headline mobile size */
+  section:first-of-type .cormorant {
+    font-size: clamp(54px, 18vw, 82px) !important;
+    line-height: 0.95 !important;
+  }
+
+  /* Hero paragraph */
+  section:first-of-type p {
+    font-size: 0.95rem !important;
+    line-height: 1.8 !important;
+    max-width: 100% !important;
+    margin-top: 34px !important;
+    margin-bottom: 36px !important;
+  }
+
+  /* Hero buttons wrapper */
+  section:first-of-type div[style*="flex-wrap"] {
+    width: 100% !important;
+    gap: 14px !important;
+    margin-bottom: 48px !important;
+  }
+
+  /* Hero stats */
+  section:first-of-type div[style*="borderTop"] {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  section:first-of-type div[style*="borderLeft"] {
+    border-left: none !important;
+    padding-left: 0 !important;
+  }
+
+  /* Collection tab row becomes horizontal scroll */
+  #collection div[style*="borderBottom"] {
+    overflow-x: auto !important;
+    gap: 30px !important;
+    padding-bottom: 4px !important;
+  }
+
+  #collection div[style*="borderBottom"]::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  /* Product showcase */
+  #collection div[style*="minHeight"] {
+    min-height: auto !important;
+  }
+
+  #collection div[style*="borderRight"] {
+    border-right: none !important;
+    min-height: 360px !important;
+  }
+
+  #collection img {
+    width: 180px !important;
+    height: 180px !important;
+  }
+
+  /* Product info panel */
+  #collection div[style*="padding: 64px"] {
+    padding: 36px 24px !important;
+  }
+
   h1,
   h2,
   h3 {
     max-width: 100% !important;
   }
 
-  .cormorant {
-    line-height: 1 !important;
-  }
-
   .intro-label {
     font-size: 0.42rem !important;
-    letter-spacing: 0.32em !important;
+    letter-spacing: 0.28em !important;
   }
 
   .intro-line {
@@ -471,10 +566,6 @@ export default function Home() {
 
   .gold-hr {
     width: 36px !important;
-  }
-
-  .form-field::placeholder {
-    font-size: 0.9rem !important;
   }
 
   details summary {
@@ -487,30 +578,44 @@ export default function Home() {
     padding: 0 16px !important;
   }
 
+  header .syncopate {
+    font-size: 0.78rem !important;
+    letter-spacing: 0.22em !important;
+  }
+
+  header .jost {
+    font-size: 0.4rem !important;
+    letter-spacing: 0.28em !important;
+  }
+
   section {
     padding-left: 18px !important;
     padding-right: 18px !important;
   }
 
-  .syncopate {
-    letter-spacing: 0.16em !important;
+  section:first-of-type > div[style*="padding"] {
+    padding: 105px 18px 64px !important;
+  }
+
+  section:first-of-type .cormorant {
+    font-size: clamp(48px, 17vw, 72px) !important;
   }
 
   .eyebrow {
-    font-size: 0.38rem !important;
-    letter-spacing: 0.18em !important;
+    font-size: 0.36rem !important;
+    letter-spacing: 0.16em !important;
   }
 
   .cta-gold,
   .cta-outline {
-    font-size: 0.4rem !important;
-    letter-spacing: 0.16em !important;
-    padding: 15px 16px !important;
+    font-size: 0.38rem !important;
+    letter-spacing: 0.13em !important;
+    padding: 15px 14px !important;
   }
 
   .product-tab {
-    font-size: 0.34rem !important;
-    letter-spacing: 0.14em !important;
+    font-size: 0.32rem !important;
+    letter-spacing: 0.12em !important;
   }
 
   .form-field {
