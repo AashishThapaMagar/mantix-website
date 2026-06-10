@@ -14,20 +14,21 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mantix-website.vercel.app"),
-  title: "MANTIX — Designed T-Shirts | Nepal Streetwear",
+  title: "MANTIX — Designed T-Shirts | Streetwear",
   description:
-    "MANTIX is Nepal's next streetwear identity. Three precision-crafted designed T-shirts in our first limited drop. Smart fashion, sharp identity — starting from Rs. 1,399.",
+    "MANTIX is the next streetwear identity. Three precision-crafted designed T-shirts in our first limited drop. Smart fashion, sharp identity — starting from Rs. 1,399.",
   keywords: [
     "MANTIX",
-    "Nepal streetwear",
+    "streetwear",
     "designed t-shirts",
-    "Kathmandu fashion",
-    "oversized t-shirt Nepal",
+    "oversized t-shirt",
+    "limited drop",
+    "premium streetwear",
   ],
   openGraph: {
-    title: "MANTIX — Designed T-Shirts | Nepal Streetwear",
+    title: "MANTIX — Designed T-Shirts | Streetwear",
     description:
-      "Nepal's next streetwear identity. Three precision-crafted pieces in our first limited drop.",
+      "The next streetwear identity. Three precision-crafted pieces in our first limited drop.",
     url: "https://mantix-website.vercel.app",
     siteName: "MANTIX",
     images: ["/MANTIX_LOGO.png"],

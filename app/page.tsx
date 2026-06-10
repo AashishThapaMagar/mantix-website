@@ -150,18 +150,35 @@ export default function Home() {
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; cursor: none; }
-        body { cursor: none; background: #060606; overflow-x: hidden; }
+        body {
+          cursor: none;
+          overflow-x: hidden;
+          background-color: #020705;
+          background-image:
+            radial-gradient(1px 1px at 12% 28%, rgba(255,255,255,0.32) 50%, transparent 51%),
+            radial-gradient(1px 1px at 78% 12%, rgba(255,255,255,0.22) 50%, transparent 51%),
+            radial-gradient(1.5px 1.5px at 55% 64%, rgba(160,255,190,0.28) 50%, transparent 51%),
+            radial-gradient(1px 1px at 32% 82%, rgba(255,255,255,0.18) 50%, transparent 51%),
+            radial-gradient(1px 1px at 88% 52%, rgba(160,255,190,0.2) 50%, transparent 51%),
+            radial-gradient(1.5px 1.5px at 8% 60%, rgba(255,255,255,0.14) 50%, transparent 51%),
+            radial-gradient(1px 1px at 66% 36%, rgba(255,255,255,0.24) 50%, transparent 51%),
+            radial-gradient(1px 1px at 42% 8%, rgba(190,160,255,0.22) 50%, transparent 51%),
+            radial-gradient(ellipse 1200px 700px at 80% -10%, rgba(74,222,128,0.05), transparent 60%),
+            radial-gradient(ellipse 1000px 800px at 10% 110%, rgba(120,80,220,0.05), transparent 60%);
+          background-size: 420px 420px, 380px 380px, 460px 460px, 400px 400px, 440px 440px, 360px 360px, 410px 410px, 390px 390px, 100% 100%, 100% 100%;
+          background-attachment: fixed;
+        }
         a, button { cursor: none; }
 
         :root {
-          --gold: #c9a84c;
-          --gold-light: #e8c96a;
-          --gold-dim: rgba(201,168,76,0.15);
+          --gold: #4ade80;
+          --gold-light: #86efac;
+          --gold-dim: rgba(74,222,128,0.15);
           --green: #22c55e;
-          --white: #f5f3ef;
+          --white: #eef6ee;
           --off: #1a1a1a;
           --muted: #4a4a4a;
-          --bg: #060606;
+          --bg: #020705;
         }
 
         .cursor-ring {
@@ -188,7 +205,7 @@ export default function Home() {
 
         .intro {
           position: fixed; inset: 0; z-index: 1000;
-          background: #060606;
+          background: #020705;
           display: flex; align-items: center; justify-content: center;
           flex-direction: column; gap: 20px;
           transition: opacity 0.9s ease 1.8s, visibility 0.9s ease 1.8s;
@@ -221,7 +238,7 @@ export default function Home() {
           font-family: 'Jost', sans-serif;
           font-size: 0.62rem; font-weight: 300;
           letter-spacing: 0.28em; text-transform: uppercase;
-          color: #505050; text-decoration: none;
+          color: #86988c; text-decoration: none;
           position: relative; padding-bottom: 3px;
           transition: color 0.3s;
         }
@@ -253,7 +270,7 @@ export default function Home() {
 
         .cta-gold {
           display: inline-flex; align-items: center; gap: 14px;
-          background: var(--gold); color: #060606;
+          background: var(--gold); color: #020705;
           font-family: 'Syncopate', sans-serif;
           font-size: 0.48rem; font-weight: 700; letter-spacing: 0.34em;
           text-transform: uppercase; text-decoration: none;
@@ -286,13 +303,13 @@ export default function Home() {
           border: none; background: none;
           font-family: 'Syncopate', sans-serif;
           font-size: 0.42rem; letter-spacing: 0.36em; text-transform: uppercase;
-          color: #2e2e2e; padding: 12px 0;
+          color: #7e9085; padding: 12px 0;
           border-bottom: 1px solid transparent;
           transition: color 0.3s, border-color 0.3s;
           cursor: none;
         }
         .product-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
-        .product-tab:hover:not(.active) { color: #6a6a6a; }
+        .product-tab:hover:not(.active) { color: #8da195; }
 
         .marquee-outer { overflow: hidden; }
         .marquee-track {
@@ -312,12 +329,12 @@ export default function Home() {
           width: 100%; background: transparent; border: none;
           border-bottom: 1px solid rgba(255,255,255,0.08);
           padding: 14px 0; color: var(--white);
-          font-family: 'Jost', sans-serif; font-size: 0.88rem; font-weight: 300;
+          font-family: 'Jost', sans-serif; font-size: 0.95rem; font-weight: 300;
           letter-spacing: 0.05em; outline: none;
           transition: border-color 0.3s;
         }
         .form-field:focus { border-bottom-color: var(--gold); }
-        .form-field::placeholder { color: #282828; }
+        .form-field::placeholder { color: #5f7268; }
         .form-field option { background: #0a0a0a; color: var(--white); }
 
         .grain {
@@ -360,8 +377,8 @@ export default function Home() {
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
         padding: "0 64px", height: "76px",
         display: "flex", alignItems: "center", justifyContent: "space-between",
-        background: scrollY > 60 ? "rgba(6,6,6,0.93)" : "transparent",
-        borderBottom: scrollY > 60 ? "1px solid rgba(201,168,76,0.1)" : "1px solid transparent",
+        background: scrollY > 60 ? "rgba(2,7,5,0.93)" : "transparent",
+        borderBottom: scrollY > 60 ? "1px solid rgba(74,222,128,0.1)" : "1px solid transparent",
         backdropFilter: scrollY > 60 ? "blur(28px)" : "none",
         transition: "all 0.55s cubic-bezier(0.16,1,0.3,1)",
       }}>
@@ -369,15 +386,15 @@ export default function Home() {
           <div style={{ position: "relative" }}>
             <div style={{
               position: "absolute", inset: "-6px", borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(201,168,76,0.22), transparent 70%)",
+              background: "radial-gradient(circle, rgba(74,222,128,0.22), transparent 70%)",
             }} />
             <Image src="/MANTIX_LOGO.png" alt="MANTIX" width={42} height={42}
-              style={{ borderRadius: "50%", position: "relative", filter: "drop-shadow(0 0 14px rgba(201,168,76,0.55))" }}
+              style={{ borderRadius: "50%", position: "relative", filter: "drop-shadow(0 0 14px rgba(74,222,128,0.55))" }}
             />
           </div>
           <div>
-            <div className="syncopate" style={{ fontSize: "0.88rem", color: "#c9a84c", letterSpacing: "0.34em", lineHeight: 1 }}>MANTIX</div>
-            <div className="jost" style={{ fontSize: "0.46rem", letterSpacing: "0.42em", color: "#2e2e2e", textTransform: "uppercase", marginTop: "3px" }}>Designed T-Shirts · Nepal</div>
+            <div className="syncopate" style={{ fontSize: "0.88rem", color: "#4ade80", letterSpacing: "0.34em", lineHeight: 1 }}>MANTIX</div>
+            <div className="jost" style={{ fontSize: "0.46rem", letterSpacing: "0.42em", color: "#7e9085", textTransform: "uppercase", marginTop: "3px" }}>Designed T-Shirts · Nepal</div>
           </div>
         </a>
 
@@ -393,22 +410,22 @@ export default function Home() {
       </header>
 
       {/* ━━━━━━━━━━━━━━━━━━━ HERO */}
-      <section style={{ minHeight: "100vh", position: "relative", display: "flex", flexDirection: "column", overflow: "hidden", background: "#060606" }}>
+      <section style={{ minHeight: "100vh", position: "relative", display: "flex", flexDirection: "column", overflow: "hidden", background: "#020705" }}>
 
         {/* Ambient glow top-right */}
         <div style={{
           position: "absolute", top: "8%", right: "-8%",
           width: "65vw", height: "65vw", maxWidth: "900px", maxHeight: "900px",
           borderRadius: "50%",
-          background: "radial-gradient(ellipse, rgba(201,168,76,0.065) 0%, transparent 65%)",
+          background: "radial-gradient(ellipse, rgba(74,222,128,0.065) 0%, transparent 65%)",
           filter: "blur(60px)", pointerEvents: "none",
         }} />
-        {/* Green accent bottom-left */}
+        {/* Purple nebula bottom-left */}
         <div style={{
           position: "absolute", bottom: "5%", left: "5%",
           width: "40vw", height: "40vw", maxWidth: "500px", maxHeight: "500px",
           borderRadius: "50%",
-          background: "radial-gradient(ellipse, rgba(34,197,94,0.04) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgba(168,85,247,0.06) 0%, transparent 70%)",
           filter: "blur(80px)", pointerEvents: "none",
         }} />
 
@@ -416,7 +433,7 @@ export default function Home() {
         <div className="hide-sm" style={{
           position: "absolute", top: 0, left: "64px", bottom: 0,
           width: "1px",
-          background: "linear-gradient(to bottom, transparent, rgba(201,168,76,0.12) 25%, rgba(201,168,76,0.12) 75%, transparent)",
+          background: "linear-gradient(to bottom, transparent, rgba(74,222,128,0.12) 25%, rgba(74,222,128,0.12) 75%, transparent)",
         }} />
 
         {/* Main grid */}
@@ -431,7 +448,7 @@ export default function Home() {
 
               {/* Hero headline */}
               <div className={`reveal ${loaded ? "in" : ""} d2`}>
-                <div className="cormorant" style={{ fontSize: "clamp(66px, 10.5vw, 152px)", fontWeight: 300, fontStyle: "italic", lineHeight: 0.88, color: "#f5f3ef", letterSpacing: "-0.02em" }}>
+                <div className="cormorant" style={{ fontSize: "clamp(66px, 10.5vw, 152px)", fontWeight: 300, fontStyle: "italic", lineHeight: 0.88, color: "#eef6ee", letterSpacing: "-0.02em" }}>
                   Wear
                 </div>
                 <div className="cormorant" style={{
@@ -446,8 +463,8 @@ export default function Home() {
                 <div className="cormorant" style={{
                   fontSize: "clamp(66px, 10.5vw, 152px)", fontWeight: 300, fontStyle: "italic",
                   lineHeight: 0.92,
-                  color: "#c9a84c",
-                  textShadow: "0 0 80px rgba(201,168,76,0.3)",
+                  color: "#4ade80",
+                  textShadow: "0 0 80px rgba(74,222,128,0.3)",
                   letterSpacing: "-0.02em",
                 }}>
                   Identity.
@@ -456,7 +473,7 @@ export default function Home() {
 
               <p className={`jost reveal ${loaded ? "in" : ""} d3`} style={{
                 fontSize: "1rem", fontWeight: 300, lineHeight: 1.9,
-                color: "#484848", maxWidth: "440px",
+                color: "#a3b8aa", maxWidth: "440px",
                 marginTop: "44px", marginBottom: "52px",
                 letterSpacing: "0.04em",
               }}>
@@ -472,8 +489,8 @@ export default function Home() {
               <div className={`reveal ${loaded ? "in" : ""} d4`} style={{ display: "flex", gap: "0", borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "32px" }}>
                 {[["3", "Signature pieces"], ["Limited", "Test drop only"], ["Rs.1,399", "Starting price"]].map(([val, label], i) => (
                   <div key={label} style={{ flex: 1, paddingLeft: i === 0 ? 0 : "32px", borderLeft: i === 0 ? "none" : "1px solid rgba(255,255,255,0.05)" }}>
-                    <div className="cormorant" style={{ fontSize: "1.9rem", fontWeight: 600, color: "#c9a84c", lineHeight: 1 }}>{val}</div>
-                    <div className="jost" style={{ fontSize: "0.58rem", color: "#2e2e2e", letterSpacing: "0.2em", textTransform: "uppercase", marginTop: "5px" }}>{label}</div>
+                    <div className="cormorant" style={{ fontSize: "1.9rem", fontWeight: 600, color: "#4ade80", lineHeight: 1 }}>{val}</div>
+                    <div className="jost" style={{ fontSize: "0.64rem", color: "#7e9085", letterSpacing: "0.2em", textTransform: "uppercase", marginTop: "5px" }}>{label}</div>
                   </div>
                 ))}
               </div>
@@ -486,12 +503,12 @@ export default function Home() {
                 {/* Orbiting rings */}
                 <div style={{
                   position: "absolute", inset: "20px",
-                  border: "1px solid rgba(201,168,76,0.08)", borderRadius: "50%",
+                  border: "1px solid rgba(74,222,128,0.08)", borderRadius: "50%",
                   animation: "orbit1 45s linear infinite",
                 }} />
                 <div style={{
                   position: "absolute", inset: "60px",
-                  border: "1px dashed rgba(201,168,76,0.05)", borderRadius: "50%",
+                  border: "1px dashed rgba(74,222,128,0.05)", borderRadius: "50%",
                   animation: "orbit1 30s linear infinite reverse",
                 }} />
                 <style>{`
@@ -506,7 +523,7 @@ export default function Home() {
                     width: i % 2 === 0 ? "5px" : "3px",
                     height: i % 2 === 0 ? "5px" : "3px",
                     borderRadius: "50%",
-                    background: `rgba(201,168,76,${i % 2 === 0 ? 0.35 : 0.15})`,
+                    background: `rgba(74,222,128,${i % 2 === 0 ? 0.35 : 0.15})`,
                     transform: `rotate(${deg}deg) translateX(190px) translate(-50%,-50%)`,
                   }} />
                 ))}
@@ -514,7 +531,7 @@ export default function Home() {
                 {/* Center glow */}
                 <div style={{
                   position: "absolute", inset: "80px", borderRadius: "50%",
-                  background: "radial-gradient(circle, rgba(201,168,76,0.14) 0%, transparent 70%)",
+                  background: "radial-gradient(circle, rgba(74,222,128,0.14) 0%, transparent 70%)",
                   filter: "blur(30px)",
                 }} />
 
@@ -527,7 +544,7 @@ export default function Home() {
                     height={260}
                     priority
                     style={{
-                      filter: "drop-shadow(0 0 60px rgba(201,168,76,0.65)) drop-shadow(0 4px 30px rgba(0,0,0,0.8))",
+                      filter: "drop-shadow(0 0 60px rgba(74,222,128,0.65)) drop-shadow(0 4px 30px rgba(0,0,0,0.8))",
                       animation: "breathe 8s ease-in-out infinite",
                     }}
                   />
@@ -536,7 +553,7 @@ export default function Home() {
                 {/* Monogram label */}
                 <div className="syncopate" style={{
                   position: "absolute", bottom: "24px",
-                  fontSize: "0.38rem", letterSpacing: "0.55em", color: "rgba(201,168,76,0.28)",
+                  fontSize: "0.38rem", letterSpacing: "0.55em", color: "rgba(74,222,128,0.28)",
                   textTransform: "uppercase",
                 }}>
                   SS — 2026 — NEPAL
@@ -556,7 +573,7 @@ export default function Home() {
                   <span key={i} className="cormorant" style={{
                     fontSize: "clamp(60px, 9vw, 120px)", fontWeight: 300,
                     fontStyle: i % 4 === 0 ? "italic" : "normal",
-                    color: w === "·" ? "rgba(201,168,76,0.18)" : "rgba(255,255,255,0.03)",
+                    color: w === "·" ? "rgba(74,222,128,0.18)" : "rgba(255,255,255,0.03)",
                     padding: "0 18px", lineHeight: 1, whiteSpace: "nowrap",
                   }}>{w}</span>
                 ))}
@@ -567,17 +584,17 @@ export default function Home() {
       </section>
 
       {/* ━━━━━━━━━━━━━━━━━━━ COLLECTION */}
-      <section id="collection" style={{ background: "#060606", padding: "140px 100px" }}>
+      <section id="collection" style={{ background: "#020705", padding: "140px 100px" }}>
         <div style={{ maxWidth: "1480px", margin: "0 auto" }}>
 
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "80px", flexWrap: "wrap", gap: "32px" }}>
             <div>
               <div className="eyebrow" style={{ marginBottom: "28px" }}>The Collection · First Drop</div>
-              <h2 className="cormorant" style={{ fontSize: "clamp(48px, 6vw, 88px)", fontWeight: 300, fontStyle: "italic", color: "#f5f3ef", lineHeight: 0.94 }}>
-                Three pieces.<br /><em style={{ color: "#c9a84c" }}>One vision.</em>
+              <h2 className="cormorant" style={{ fontSize: "clamp(48px, 6vw, 88px)", fontWeight: 300, fontStyle: "italic", color: "#eef6ee", lineHeight: 0.94 }}>
+                Three pieces.<br /><em style={{ color: "#4ade80" }}>One vision.</em>
               </h2>
             </div>
-            <p className="jost" style={{ maxWidth: "320px", color: "#303030", fontSize: "0.84rem", lineHeight: 1.95, fontWeight: 300, letterSpacing: "0.04em" }}>
+            <p className="jost" style={{ maxWidth: "320px", color: "#97aca0", fontSize: "0.95rem", lineHeight: 1.95, fontWeight: 300, letterSpacing: "0.04em" }}>
               Each design carries a name, a character, a statement. These aren&apos;t just shirts — they&apos;re the first chapter of something much larger.
             </p>
           </div>
@@ -594,29 +611,29 @@ export default function Home() {
           {/* Product showcase */}
           <div style={{
             display: "grid", gridTemplateColumns: "1fr 1fr",
-            border: "1px solid rgba(201,168,76,0.07)", borderTop: "none",
+            border: "1px solid rgba(74,222,128,0.07)", borderTop: "none",
             minHeight: "560px", transition: "all 0.4s ease",
           }} className="two-col">
 
             {/* Visual panel */}
             <div style={{
-              background: `radial-gradient(ellipse at 50% 55%, ${products[activeProduct].bgColor} 0%, #060606 100%)`,
+              background: `radial-gradient(ellipse at 50% 55%, ${products[activeProduct].bgColor} 0%, #020705 100%)`,
               display: "flex", alignItems: "center", justifyContent: "center",
               position: "relative", overflow: "hidden",
-              borderRight: "1px solid rgba(201,168,76,0.06)",
+              borderRight: "1px solid rgba(74,222,128,0.06)",
               minHeight: "500px",
             }}>
               {/* Grid overlay */}
               <div style={{
                 position: "absolute", inset: 0,
-                backgroundImage: "linear-gradient(rgba(201,168,76,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.025) 1px, transparent 1px)",
+                backgroundImage: "linear-gradient(rgba(74,222,128,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(74,222,128,0.025) 1px, transparent 1px)",
                 backgroundSize: "48px 48px",
               }} />
               {/* Ghost number */}
               <div className="cormorant" style={{
                 position: "absolute", right: "-1vw", bottom: "-4vw",
                 fontSize: "20vw", fontWeight: 700,
-                color: "transparent", WebkitTextStroke: "1px rgba(201,168,76,0.05)",
+                color: "transparent", WebkitTextStroke: "1px rgba(74,222,128,0.05)",
                 lineHeight: 1, pointerEvents: "none", userSelect: "none",
               }}>
                 {products[activeProduct].id}
@@ -644,28 +661,28 @@ export default function Home() {
             {/* Info panel */}
             <div style={{ padding: "64px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
               <div>
-                <div className="syncopate" style={{ fontSize: "0.38rem", letterSpacing: "0.52em", color: "rgba(201,168,76,0.35)", marginBottom: "22px" }}>
+                <div className="syncopate" style={{ fontSize: "0.38rem", letterSpacing: "0.52em", color: "rgba(74,222,128,0.35)", marginBottom: "22px" }}>
                   {products[activeProduct].id} / 03 — Limited Edition
                 </div>
-                <div className="cormorant" style={{ fontSize: "1rem", fontStyle: "italic", color: "#c9a84c", marginBottom: "10px", letterSpacing: "0.1em" }}>
+                <div className="cormorant" style={{ fontSize: "1rem", fontStyle: "italic", color: "#4ade80", marginBottom: "10px", letterSpacing: "0.1em" }}>
                   &ldquo;{products[activeProduct].sub}&rdquo;
                 </div>
-                <h3 className="cormorant" style={{ fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 600, color: "#f5f3ef", lineHeight: 1.05, marginBottom: "28px" }}>
+                <h3 className="cormorant" style={{ fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 600, color: "#eef6ee", lineHeight: 1.05, marginBottom: "28px" }}>
                   {products[activeProduct].name}
                 </h3>
                 <hr className="gold-hr" style={{ marginBottom: "28px" }} />
-                <p className="jost" style={{ color: "#383838", fontSize: "0.85rem", lineHeight: 1.9, fontWeight: 300, marginBottom: "8px" }}>
+                <p className="jost" style={{ color: "#9fb4a6", fontSize: "0.95rem", lineHeight: 1.9, fontWeight: 300, marginBottom: "8px" }}>
                   {products[activeProduct].detail}
                 </p>
-                <p className="jost" style={{ color: "#282828", fontSize: "0.78rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>
+                <p className="jost" style={{ color: "#7e9085", fontSize: "0.85rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>
                   {products[activeProduct].fit}
                 </p>
               </div>
 
               <div>
                 <div style={{ marginBottom: "32px" }}>
-                  <div className="jost" style={{ fontSize: "0.55rem", letterSpacing: "0.3em", color: "#282828", textTransform: "uppercase", marginBottom: "10px" }}>Starting at</div>
-                  <div className="cormorant" style={{ fontSize: "3.4rem", fontWeight: 600, color: "#c9a84c", lineHeight: 1 }}>{products[activeProduct].price}</div>
+                  <div className="jost" style={{ fontSize: "0.6rem", letterSpacing: "0.3em", color: "#7e9085", textTransform: "uppercase", marginBottom: "10px" }}>Starting at</div>
+                  <div className="cormorant" style={{ fontSize: "3.4rem", fontWeight: 600, color: "#4ade80", lineHeight: 1 }}>{products[activeProduct].price}</div>
                 </div>
                 <a href="#early-access" className="cta-gold" style={{ width: "100%", justifyContent: "center" }}>
                   Reserve This Piece →
@@ -677,7 +694,7 @@ export default function Home() {
                       width: "38px", height: "38px",
                       border: "1px solid rgba(255,255,255,0.06)",
                       display: "flex", alignItems: "center", justifyContent: "center",
-                      fontSize: "0.6rem", color: "#282828", letterSpacing: "0.08em",
+                      fontSize: "0.66rem", color: "#7e9085", letterSpacing: "0.08em",
                     }}>{s}</div>
                   ))}
                 </div>
@@ -688,20 +705,20 @@ export default function Home() {
       </section>
 
       {/* ━━━━━━━━━━━━━━━━━━━ AI STYLE MATCH */}
-      <section id="style-match" style={{ background: "#06080a", padding: "140px 100px", borderTop: "1px solid rgba(201,168,76,0.07)", borderBottom: "1px solid rgba(201,168,76,0.07)" }}>
+      <section id="style-match" style={{ background: "#04120c", padding: "140px 100px", borderTop: "1px solid rgba(74,222,128,0.07)", borderBottom: "1px solid rgba(74,222,128,0.07)" }}>
         <div style={{ maxWidth: "760px", margin: "0 auto", textAlign: "center" }}>
           <div className="eyebrow" style={{ justifyContent: "center", marginBottom: "28px" }}>AI Style Match</div>
-          <h2 className="cormorant" style={{ fontSize: "clamp(40px, 6vw, 76px)", fontWeight: 300, fontStyle: "italic", color: "#f5f3ef", lineHeight: 0.95, marginBottom: "24px" }}>
-            Find your<br /><em style={{ color: "#c9a84c" }}>piece.</em>
+          <h2 className="cormorant" style={{ fontSize: "clamp(40px, 6vw, 76px)", fontWeight: 300, fontStyle: "italic", color: "#eef6ee", lineHeight: 0.95, marginBottom: "24px" }}>
+            Find your<br /><em style={{ color: "#4ade80" }}>piece.</em>
           </h2>
-          <p className="jost" style={{ color: "#8a8a8a", fontSize: "0.9rem", lineHeight: 1.9, fontWeight: 300, maxWidth: "440px", margin: "0 auto 48px" }}>
+          <p className="jost" style={{ color: "#8da195", fontSize: "0.95rem", lineHeight: 1.9, fontWeight: 300, maxWidth: "440px", margin: "0 auto 48px" }}>
             Describe your style or mood, and our AI matches you with the MANTIX piece that fits you best.
           </p>
 
           <div style={{ marginBottom: "24px" }}>
             <input
               className="form-field"
-              style={{ textAlign: "center", borderBottom: "1px solid rgba(201,168,76,0.25)" }}
+              style={{ textAlign: "center", borderBottom: "1px solid rgba(74,222,128,0.25)" }}
               placeholder="e.g. minimal, all-black, low-key..."
               value={vibe}
               onChange={(e) => setVibe(e.target.value)}
@@ -714,21 +731,21 @@ export default function Home() {
             className="cta-gold"
             onClick={handleStyleMatch}
             disabled={matchStatus === "loading"}
-            style={{ justifyContent: "center", fontSize: "0.5rem" }}
+            style={{ justifyContent: "center", fontSize: "0.56rem" }}
           >
             {matchStatus === "loading" ? "Matching..." : "Find My Piece →"}
           </button>
 
           {matchStatus === "done" && (
-            <div style={{ marginTop: "48px", padding: "40px", border: "1px solid rgba(201,168,76,0.18)", background: "rgba(201,168,76,0.02)" }}>
-              <div className="syncopate" style={{ fontSize: "0.4rem", letterSpacing: "0.5em", color: "rgba(201,168,76,0.5)", textTransform: "uppercase", marginBottom: "18px" }}>Your Match</div>
-              <p className="cormorant" style={{ fontSize: "clamp(18px, 2.4vw, 26px)", fontStyle: "italic", color: "#f5f3ef", lineHeight: 1.5 }}>
+            <div style={{ marginTop: "48px", padding: "40px", border: "1px solid rgba(74,222,128,0.18)", background: "rgba(74,222,128,0.02)" }}>
+              <div className="syncopate" style={{ fontSize: "0.4rem", letterSpacing: "0.5em", color: "rgba(74,222,128,0.5)", textTransform: "uppercase", marginBottom: "18px" }}>Your Match</div>
+              <p className="cormorant" style={{ fontSize: "clamp(18px, 2.4vw, 26px)", fontStyle: "italic", color: "#eef6ee", lineHeight: 1.5 }}>
                 {matchResult}
               </p>
             </div>
           )}
           {matchStatus === "error" && (
-            <div className="jost" style={{ marginTop: "32px", color: "#d98a6a", fontSize: "0.8rem", letterSpacing: "0.05em" }}>
+            <div className="jost" style={{ marginTop: "32px", color: "#d98a6a", fontSize: "0.88rem", letterSpacing: "0.05em" }}>
               {matchResult}
             </div>
           )}
@@ -737,9 +754,9 @@ export default function Home() {
 
       {/* ━━━━━━━━━━━━━━━━━━━ QUOTE INTERLUDE */}
       <section style={{
-        background: "#06080a",
-        borderTop: "1px solid rgba(201,168,76,0.08)",
-        borderBottom: "1px solid rgba(201,168,76,0.08)",
+        background: "#04120c",
+        borderTop: "1px solid rgba(74,222,128,0.08)",
+        borderBottom: "1px solid rgba(74,222,128,0.08)",
         padding: "120px 100px", position: "relative", overflow: "hidden",
       }}>
         <div style={{
@@ -747,43 +764,43 @@ export default function Home() {
           transform: "translate(-50%,-50%)",
           width: "70vw", height: "70vw", maxWidth: "800px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(201,168,76,0.038) 0%, transparent 60%)",
+          background: "radial-gradient(circle, rgba(74,222,128,0.038) 0%, transparent 60%)",
           pointerEvents: "none",
         }} />
         <div style={{ maxWidth: "860px", margin: "0 auto", textAlign: "center", position: "relative" }}>
-          <div className="cormorant" style={{ fontSize: "clamp(13px, 1.8vw, 20px)", fontStyle: "italic", color: "rgba(201,168,76,0.4)", marginBottom: "36px", letterSpacing: "0.1em" }}>
+          <div className="cormorant" style={{ fontSize: "clamp(13px, 1.8vw, 20px)", fontStyle: "italic", color: "rgba(74,222,128,0.4)", marginBottom: "36px", letterSpacing: "0.1em" }}>
             — A word from MANTIX —
           </div>
           <blockquote className="cormorant" style={{
             fontSize: "clamp(30px, 5vw, 64px)", fontWeight: 300, fontStyle: "italic",
-            color: "#f5f3ef", lineHeight: 1.22, letterSpacing: "-0.01em",
+            color: "#eef6ee", lineHeight: 1.22, letterSpacing: "-0.01em",
           }}>
-            &ldquo;We don&apos;t make T-shirts.<br />We make&nbsp;<em style={{ color: "#c9a84c" }}>statements</em>&nbsp;you wear.&rdquo;
+            &ldquo;We don&apos;t make T-shirts.<br />We make&nbsp;<em style={{ color: "#4ade80" }}>statements</em>&nbsp;you wear.&rdquo;
           </blockquote>
-          <hr className="gold-hr" style={{ margin: "44px auto", width: "60px", background: "linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent)" }} />
-          <div className="jost" style={{ fontSize: "0.6rem", letterSpacing: "0.36em", color: "#282828", textTransform: "uppercase" }}>
+          <hr className="gold-hr" style={{ margin: "44px auto", width: "60px", background: "linear-gradient(90deg, transparent, rgba(74,222,128,0.4), transparent)" }} />
+          <div className="jost" style={{ fontSize: "0.66rem", letterSpacing: "0.36em", color: "#7e9085", textTransform: "uppercase" }}>
             MANTIX — Nepal — 2026
           </div>
         </div>
       </section>
 
       {/* ━━━━━━━━━━━━━━━━━━━ WHY MANTIX */}
-      <section id="why" style={{ background: "#060606", padding: "140px 100px" }}>
+      <section id="why" style={{ background: "#020705", padding: "140px 100px" }}>
         <div style={{ maxWidth: "1480px", margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "0.75fr 1.25fr", gap: "100px", alignItems: "start" }} className="two-col">
 
             <div style={{ position: "sticky", top: "100px" }}>
               <div className="eyebrow" style={{ marginBottom: "28px" }}>The Vision</div>
-              <h2 className="cormorant" style={{ fontSize: "clamp(42px, 5vw, 72px)", fontWeight: 300, fontStyle: "italic", color: "#f5f3ef", lineHeight: 0.95, marginBottom: "32px" }}>
-                Built different.<br /><span style={{ color: "#c9a84c" }}>By design.</span>
+              <h2 className="cormorant" style={{ fontSize: "clamp(42px, 5vw, 72px)", fontWeight: 300, fontStyle: "italic", color: "#eef6ee", lineHeight: 0.95, marginBottom: "32px" }}>
+                Built different.<br /><span style={{ color: "#4ade80" }}>By design.</span>
               </h2>
               <hr className="gold-hr" style={{ marginBottom: "32px" }} />
-              <p className="jost" style={{ color: "#303030", fontSize: "0.84rem", lineHeight: 1.95, fontWeight: 300 }}>
+              <p className="jost" style={{ color: "#97aca0", fontSize: "0.95rem", lineHeight: 1.95, fontWeight: 300 }}>
                 MANTIX is Nepal&apos;s next streetwear identity. We start precise, scale with purpose, and let intelligence — artificial and human — guide every future collection.
               </p>
               <div style={{ marginTop: "48px" }}>
                 <Image src="/MANTIX_LOGO.png" alt="MANTIX" width={140} height={140}
-                  style={{ filter: "drop-shadow(0 0 28px rgba(201,168,76,0.45)) grayscale(10%)", opacity: 0.75 }}
+                  style={{ filter: "drop-shadow(0 0 28px rgba(74,222,128,0.45)) grayscale(10%)", opacity: 0.75 }}
                 />
               </div>
             </div>
@@ -796,12 +813,12 @@ export default function Home() {
                 { n: "IV", title: "AI-Powered Future", body: "Your choices and feedback directly shape our next collections. Fashion that listens, learns, and evolves." },
               ].map(item => (
                 <div key={item.n} className="feature-row">
-                  <div className="cormorant" style={{ fontSize: "2.8rem", fontWeight: 300, fontStyle: "italic", color: "rgba(201,168,76,0.18)", lineHeight: 1, paddingTop: "4px" }}>
+                  <div className="cormorant" style={{ fontSize: "2.8rem", fontWeight: 300, fontStyle: "italic", color: "rgba(74,222,128,0.18)", lineHeight: 1, paddingTop: "4px" }}>
                     {item.n}
                   </div>
                   <div>
-                    <h3 className="cormorant" style={{ fontSize: "1.45rem", fontWeight: 600, color: "#d8d5d0", marginBottom: "10px" }}>{item.title}</h3>
-                    <p className="jost" style={{ color: "#303030", fontSize: "0.84rem", lineHeight: 1.9, fontWeight: 300 }}>{item.body}</p>
+                    <h3 className="cormorant" style={{ fontSize: "1.45rem", fontWeight: 600, color: "#e2e9e2", marginBottom: "10px" }}>{item.title}</h3>
+                    <p className="jost" style={{ color: "#97aca0", fontSize: "0.95rem", lineHeight: 1.9, fontWeight: 300 }}>{item.body}</p>
                   </div>
                 </div>
               ))}
@@ -811,24 +828,24 @@ export default function Home() {
       </section>
 
       {/* ━━━━━━━━━━━━━━━━━━━ FAQ */}
-      <section id="faq" style={{ background: "#060606", padding: "140px 100px" }}>
+      <section id="faq" style={{ background: "#020705", padding: "140px 100px" }}>
         <div style={{ maxWidth: "1480px", margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "0.7fr 1.3fr", gap: "80px", alignItems: "start" }} className="two-col">
 
             <div style={{ position: "sticky", top: "100px" }}>
               <div className="eyebrow" style={{ marginBottom: "28px" }}>Questions</div>
-              <h2 className="cormorant" style={{ fontSize: "clamp(40px, 5vw, 68px)", fontWeight: 300, fontStyle: "italic", color: "#f5f3ef", lineHeight: 0.95 }}>
-                Good to<br /><span style={{ color: "#c9a84c" }}>know.</span>
+              <h2 className="cormorant" style={{ fontSize: "clamp(40px, 5vw, 68px)", fontWeight: 300, fontStyle: "italic", color: "#eef6ee", lineHeight: 0.95 }}>
+                Good to<br /><span style={{ color: "#4ade80" }}>know.</span>
               </h2>
             </div>
 
             <div>
               {faqs.map((f, i) => (
                 <details key={i} className="feature-row" style={{ display: "block", padding: "28px 0" }}>
-                  <summary className="cormorant" style={{ fontSize: "1.35rem", fontWeight: 600, color: "#d8d5d0", cursor: "pointer", listStyle: "none" }}>
+                  <summary className="cormorant" style={{ fontSize: "1.35rem", fontWeight: 600, color: "#e2e9e2", cursor: "pointer", listStyle: "none" }}>
                     {f.q}
                   </summary>
-                  <p className="jost" style={{ color: "#8a8a8a", fontSize: "0.86rem", lineHeight: 1.9, fontWeight: 300, marginTop: "14px" }}>
+                  <p className="jost" style={{ color: "#8da195", fontSize: "0.95rem", lineHeight: 1.9, fontWeight: 300, marginTop: "14px" }}>
                     {f.a}
                   </p>
                 </details>
@@ -855,27 +872,27 @@ export default function Home() {
       </section>
 
       {/* ━━━━━━━━━━━━━━━━━━━ EARLY ACCESS */}
-      <section id="early-access" style={{ background: "#05080a", padding: "140px 100px", borderTop: "1px solid rgba(201,168,76,0.07)" }}>
+      <section id="early-access" style={{ background: "#04100a", padding: "140px 100px", borderTop: "1px solid rgba(74,222,128,0.07)" }}>
         <div style={{ maxWidth: "720px", margin: "0 auto" }}>
 
           {/* Header */}
           <div style={{ textAlign: "center", marginBottom: "88px" }}>
             <Image src="/MANTIX_LOGO.png" alt="MANTIX" width={60} height={60}
-              style={{ filter: "drop-shadow(0 0 22px rgba(201,168,76,0.55))", marginBottom: "36px" }}
+              style={{ filter: "drop-shadow(0 0 22px rgba(74,222,128,0.55))", marginBottom: "36px" }}
             />
             <div className="eyebrow" style={{ justifyContent: "center", marginBottom: "28px" }}>Early Access — Limited Spots</div>
-            <h2 className="cormorant" style={{ fontSize: "clamp(44px, 6.5vw, 84px)", fontWeight: 300, fontStyle: "italic", color: "#f5f3ef", lineHeight: 0.94, marginBottom: "24px" }}>
-              Claim your<br /><em style={{ color: "#c9a84c" }}>place.</em>
+            <h2 className="cormorant" style={{ fontSize: "clamp(44px, 6.5vw, 84px)", fontWeight: 300, fontStyle: "italic", color: "#eef6ee", lineHeight: 0.94, marginBottom: "24px" }}>
+              Claim your<br /><em style={{ color: "#4ade80" }}>place.</em>
             </h2>
-            <p className="jost" style={{ color: "#303030", fontSize: "0.86rem", lineHeight: 1.9, fontWeight: 300, maxWidth: "400px", margin: "0 auto" }}>
+            <p className="jost" style={{ color: "#97aca0", fontSize: "0.95rem", lineHeight: 1.9, fontWeight: 300, maxWidth: "400px", margin: "0 auto" }}>
               Vote on which designs we produce first and lock in early-access pricing before we go public.
             </p>
           </div>
 
           {/* Form card */}
           <div style={{
-            border: "1px solid rgba(201,168,76,0.1)",
-            background: "rgba(201,168,76,0.015)",
+            border: "1px solid rgba(74,222,128,0.1)",
+            background: "rgba(74,222,128,0.015)",
             padding: "64px",
             position: "relative",
           }}>
@@ -888,7 +905,7 @@ export default function Home() {
             ].map((s, i) => (
               <div key={i} style={{
                 position: "absolute", width: "22px", height: "22px",
-                borderColor: "rgba(201,168,76,0.35)", borderStyle: "solid", ...s,
+                borderColor: "rgba(74,222,128,0.35)", borderStyle: "solid", ...s,
               }} />
             ))}
 
@@ -898,22 +915,22 @@ export default function Home() {
 
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px" }} className="two-col">
                 <div>
-                  <label className="jost" style={{ fontSize: "0.5rem", letterSpacing: "0.3em", color: "#282828", textTransform: "uppercase", display: "block", marginBottom: "6px" }}>Full Name</label>
+                  <label className="jost" style={{ fontSize: "0.56rem", letterSpacing: "0.3em", color: "#7e9085", textTransform: "uppercase", display: "block", marginBottom: "6px" }}>Full Name</label>
                   <input name="name" required className="form-field" placeholder="Your name" />
                 </div>
                 <div>
-                  <label className="jost" style={{ fontSize: "0.5rem", letterSpacing: "0.3em", color: "#282828", textTransform: "uppercase", display: "block", marginBottom: "6px" }}>Phone</label>
+                  <label className="jost" style={{ fontSize: "0.56rem", letterSpacing: "0.3em", color: "#7e9085", textTransform: "uppercase", display: "block", marginBottom: "6px" }}>Phone</label>
                   <input name="phone" required className="form-field" placeholder="+977 ···" />
                 </div>
               </div>
 
               <div>
-                <label className="jost" style={{ fontSize: "0.5rem", letterSpacing: "0.3em", color: "#282828", textTransform: "uppercase", display: "block", marginBottom: "6px" }}>City / District</label>
+                <label className="jost" style={{ fontSize: "0.56rem", letterSpacing: "0.3em", color: "#7e9085", textTransform: "uppercase", display: "block", marginBottom: "6px" }}>City / District</label>
                 <input name="city" className="form-field" placeholder="Kathmandu, Pokhara..." />
               </div>
 
               <div>
-                <label className="jost" style={{ fontSize: "0.5rem", letterSpacing: "0.3em", color: "#282828", textTransform: "uppercase", display: "block", marginBottom: "6px" }}>Your Design</label>
+                <label className="jost" style={{ fontSize: "0.56rem", letterSpacing: "0.3em", color: "#7e9085", textTransform: "uppercase", display: "block", marginBottom: "6px" }}>Your Design</label>
                 <select name="design" required className="form-field" style={{ appearance: "none" }}>
                   <option value="">Select a design</option>
                   <option>01 — The Phantom (Black Oversized) · Rs. 1,499</option>
@@ -924,7 +941,7 @@ export default function Home() {
 
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px" }} className="two-col">
                 <div>
-                  <label className="jost" style={{ fontSize: "0.5rem", letterSpacing: "0.3em", color: "#282828", textTransform: "uppercase", display: "block", marginBottom: "6px" }}>Size</label>
+                  <label className="jost" style={{ fontSize: "0.56rem", letterSpacing: "0.3em", color: "#7e9085", textTransform: "uppercase", display: "block", marginBottom: "6px" }}>Size</label>
                   <select name="size" required className="form-field" style={{ appearance: "none" }}>
                     <option value="">Select size</option>
                     {["S", "M", "L", "XL", "XXL"].map(s => <option key={s}>{s}</option>)}
@@ -934,28 +951,28 @@ export default function Home() {
               </div>
 
               <div>
-                <label className="jost" style={{ fontSize: "0.5rem", letterSpacing: "0.3em", color: "#282828", textTransform: "uppercase", display: "block", marginBottom: "6px" }}>Your Vision (optional)</label>
+                <label className="jost" style={{ fontSize: "0.56rem", letterSpacing: "0.3em", color: "#7e9085", textTransform: "uppercase", display: "block", marginBottom: "6px" }}>Your Vision (optional)</label>
                 <textarea name="vision" className="form-field" placeholder="Design, color, or delivery suggestion..." style={{ minHeight: "80px", resize: "none" }} />
               </div>
 
               <div style={{ paddingTop: "12px" }}>
-                <button type="submit" disabled={formStatus === "sending"} className="cta-gold" style={{ width: "100%", justifyContent: "center", fontSize: "0.5rem" }}>
+                <button type="submit" disabled={formStatus === "sending"} className="cta-gold" style={{ width: "100%", justifyContent: "center", fontSize: "0.56rem" }}>
                   {formStatus === "sending" ? "Sending..." : "Submit My Early Access Interest →"}
                 </button>
               </div>
 
               {formStatus === "done" && (
-                <div className="jost" style={{ textAlign: "center", color: "#c9a84c", fontSize: "0.7rem", letterSpacing: "0.1em" }}>
+                <div className="jost" style={{ textAlign: "center", color: "#4ade80", fontSize: "0.78rem", letterSpacing: "0.1em" }}>
                   You&apos;re on the list. We&apos;ll be in touch as the drop gets closer.
                 </div>
               )}
               {formStatus === "error" && (
-                <div className="jost" style={{ textAlign: "center", color: "#d98a6a", fontSize: "0.7rem", letterSpacing: "0.1em" }}>
+                <div className="jost" style={{ textAlign: "center", color: "#d98a6a", fontSize: "0.78rem", letterSpacing: "0.1em" }}>
                   Something went wrong — please try again.
                 </div>
               )}
 
-              <div className="jost" style={{ fontSize: "0.48rem", color: "#1e1e1e", letterSpacing: "0.2em", textAlign: "center", textTransform: "uppercase" }}>
+              <div className="jost" style={{ fontSize: "0.48rem", color: "#6f8276", letterSpacing: "0.2em", textAlign: "center", textTransform: "uppercase" }}>
                 Your information is private and protected · MANTIX · Nepal
               </div>
             </form>
@@ -964,17 +981,17 @@ export default function Home() {
       </section>
 
       {/* ━━━━━━━━━━━━━━━━━━━ FOOTER */}
-      <footer id="contact" style={{ background: "#040404", borderTop: "1px solid rgba(201,168,76,0.07)", padding: "88px 100px 52px" }}>
+      <footer id="contact" style={{ background: "#020503", borderTop: "1px solid rgba(74,222,128,0.07)", padding: "88px 100px 52px" }}>
         <div style={{ maxWidth: "1480px", margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: "60px", marginBottom: "80px" }} className="three-col">
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "28px" }}>
                 <Image src="/MANTIX_LOGO.png" alt="MANTIX" width={40} height={40}
-                  style={{ borderRadius: "50%", filter: "drop-shadow(0 0 12px rgba(201,168,76,0.5))" }}
+                  style={{ borderRadius: "50%", filter: "drop-shadow(0 0 12px rgba(74,222,128,0.5))" }}
                 />
-                <div className="syncopate" style={{ fontSize: "0.85rem", color: "#c9a84c", letterSpacing: "0.34em" }}>MANTIX</div>
+                <div className="syncopate" style={{ fontSize: "0.95rem", color: "#4ade80", letterSpacing: "0.34em" }}>MANTIX</div>
               </div>
-              <p className="cormorant" style={{ fontSize: "1.05rem", fontStyle: "italic", color: "#282828", lineHeight: 1.8, maxWidth: "260px" }}>
+              <p className="cormorant" style={{ fontSize: "1.05rem", fontStyle: "italic", color: "#7e9085", lineHeight: 1.8, maxWidth: "260px" }}>
                 Smart Fashion. Sharp Identity.<br />Nepal&apos;s next streetwear story — starting now.
               </p>
             </div>
@@ -984,10 +1001,10 @@ export default function Home() {
               { title: "Contact", links: ["mantix@nepal.com", "Kathmandu, NP"] },
             ].map(col => (
               <div key={col.title}>
-                <div className="syncopate" style={{ fontSize: "0.38rem", letterSpacing: "0.44em", color: "#c9a84c", textTransform: "uppercase", marginBottom: "24px" }}>{col.title}</div>
+                <div className="syncopate" style={{ fontSize: "0.38rem", letterSpacing: "0.44em", color: "#4ade80", textTransform: "uppercase", marginBottom: "24px" }}>{col.title}</div>
                 {col.links.map(l => (
                   <div key={l} style={{ marginBottom: "16px" }}>
-                    <a href="#" className="jost" style={{ color: "#6a6a6a", textDecoration: "none", fontSize: "0.8rem", fontWeight: 300, letterSpacing: "0.06em" }}>{l}</a>
+                    <a href="#" className="jost" style={{ color: "#8da195", textDecoration: "none", fontSize: "0.88rem", fontWeight: 300, letterSpacing: "0.06em" }}>{l}</a>
                   </div>
                 ))}
               </div>
@@ -995,8 +1012,8 @@ export default function Home() {
           </div>
 
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", paddingTop: "28px", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "12px" }}>
-            <span className="jost" style={{ fontSize: "0.58rem", color: "#5a5a5a", letterSpacing: "0.2em" }}>© 2026 MANTIX. All rights reserved.</span>
-            <span className="jost" style={{ fontSize: "0.58rem", color: "#5a5a5a", letterSpacing: "0.2em" }}>Building smart fashion — step by step.</span>
+            <span className="jost" style={{ fontSize: "0.64rem", color: "#7c8f83", letterSpacing: "0.2em" }}>© 2026 MANTIX. All rights reserved.</span>
+            <span className="jost" style={{ fontSize: "0.64rem", color: "#7c8f83", letterSpacing: "0.2em" }}>Building smart fashion — step by step.</span>
           </div>
         </div>
       </footer>
