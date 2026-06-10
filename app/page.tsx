@@ -78,11 +78,11 @@ export default function Home() {
     },
     {
       q: "Where do you deliver?",
-      a: "We deliver across Nepal, including Kathmandu, Pokhara, and other major cities. Tell us your city when you reserve and we'll confirm delivery details as the drop gets closer.",
+      a: "Delivery availability depends on your location. Tell us your city when you reserve and we'll confirm delivery options for you as the drop gets closer.",
     },
     {
       q: "How can I pay?",
-      a: "For the first drop we plan to support cash on delivery alongside popular digital wallets used in Nepal. Final options are confirmed with early-access members before launch.",
+      a: "For the first drop we plan to support cash on delivery alongside popular digital payment options. Final options are confirmed with early-access members before launch.",
     },
     {
       q: "What makes MANTIX different?",
@@ -394,7 +394,7 @@ export default function Home() {
           </div>
           <div>
             <div className="syncopate" style={{ fontSize: "0.88rem", color: "#4ade80", letterSpacing: "0.34em", lineHeight: 1 }}>MANTIX</div>
-            <div className="jost" style={{ fontSize: "0.46rem", letterSpacing: "0.42em", color: "#7e9085", textTransform: "uppercase", marginTop: "3px" }}>Designed T-Shirts · Nepal</div>
+            <div className="jost" style={{ fontSize: "0.46rem", letterSpacing: "0.42em", color: "#7e9085", textTransform: "uppercase", marginTop: "3px" }}>Designed T-Shirts</div>
           </div>
         </a>
 
@@ -443,7 +443,7 @@ export default function Home() {
             {/* COPY */}
             <div>
               <div className={`eyebrow reveal ${loaded ? "in" : ""} d1`} style={{ marginBottom: "44px" }}>
-                First Collection · Nepal · 2026
+                First Collection · 2026
               </div>
 
               {/* Hero headline */}
@@ -477,7 +477,7 @@ export default function Home() {
                 marginTop: "44px", marginBottom: "52px",
                 letterSpacing: "0.04em",
               }}>
-                Not just a T-shirt. A declaration. MANTIX launches with three precision-crafted pieces built for Nepal&apos;s next generation — where streetwear meets sharp identity.
+                Not just a T-shirt. A declaration. MANTIX launches with three precision-crafted pieces built for the next generation — where streetwear meets sharp identity.
               </p>
 
               <div className={`reveal ${loaded ? "in" : ""} d3`} style={{ display: "flex", gap: "16px", flexWrap: "wrap", marginBottom: "72px" }}>
@@ -556,7 +556,7 @@ export default function Home() {
                   fontSize: "0.38rem", letterSpacing: "0.55em", color: "rgba(74,222,128,0.28)",
                   textTransform: "uppercase",
                 }}>
-                  SS — 2026 — NEPAL
+                  SS — 2026 — WORLDWIDE
                 </div>
               </div>
             </div>
@@ -569,7 +569,7 @@ export default function Home() {
           <div className="marquee-track" style={{ padding: "16px 0" }}>
             {Array(2).fill(null).map((_, k) => (
               <div key={k} style={{ display: "flex", alignItems: "center" }}>
-                {["MANTIX", "·", "DESIGNED T-SHIRTS", "·", "NEPAL", "·", "SMART FASHION", "·", "SHARP IDENTITY", "·", "LIMITED DROP", "·", "2026", "·"].map((w, i) => (
+                {["MANTIX", "·", "DESIGNED T-SHIRTS", "·", "WORLDWIDE", "·", "SMART FASHION", "·", "SHARP IDENTITY", "·", "LIMITED DROP", "·", "2026", "·"].map((w, i) => (
                   <span key={i} className="cormorant" style={{
                     fontSize: "clamp(60px, 9vw, 120px)", fontWeight: 300,
                     fontStyle: i % 4 === 0 ? "italic" : "normal",
@@ -779,7 +779,7 @@ export default function Home() {
           </blockquote>
           <hr className="gold-hr" style={{ margin: "44px auto", width: "60px", background: "linear-gradient(90deg, transparent, rgba(74,222,128,0.4), transparent)" }} />
           <div className="jost" style={{ fontSize: "0.66rem", letterSpacing: "0.36em", color: "#7e9085", textTransform: "uppercase" }}>
-            MANTIX — Nepal — 2026
+            MANTIX — Est. 2026
           </div>
         </div>
       </section>
@@ -796,7 +796,7 @@ export default function Home() {
               </h2>
               <hr className="gold-hr" style={{ marginBottom: "32px" }} />
               <p className="jost" style={{ color: "#97aca0", fontSize: "0.95rem", lineHeight: 1.95, fontWeight: 300 }}>
-                MANTIX is Nepal&apos;s next streetwear identity. We start precise, scale with purpose, and let intelligence — artificial and human — guide every future collection.
+                MANTIX is the next streetwear identity. We start precise, scale with purpose, and let intelligence — artificial and human — guide every future collection.
               </p>
               <div style={{ marginTop: "48px" }}>
                 <Image src="/MANTIX_LOGO.png" alt="MANTIX" width={140} height={140}
@@ -808,7 +808,7 @@ export default function Home() {
             <div>
               {[
                 { n: "I", title: "Designed T-Shirts", body: "Original MANTIX graphics crafted for everyday style and identity. Every line, every placement — intentional." },
-                { n: "II", title: "Modern Streetwear", body: "Minimal, bold, and youth-focused fashion for Nepal's new generation. No compromise on vision." },
+                { n: "II", title: "Modern Streetwear", body: "Minimal, bold, and youth-focused fashion for a new generation. No compromise on vision." },
                 { n: "III", title: "Affordable Premium", body: "We believe exceptional design shouldn't demand exceptional prices. Early customers always get the best." },
                 { n: "IV", title: "AI-Powered Future", body: "Your choices and feedback directly shape our next collections. Fashion that listens, learns, and evolves." },
               ].map(item => (
@@ -920,13 +920,13 @@ export default function Home() {
                 </div>
                 <div>
                   <label className="jost" style={{ fontSize: "0.56rem", letterSpacing: "0.3em", color: "#7e9085", textTransform: "uppercase", display: "block", marginBottom: "6px" }}>Phone</label>
-                  <input name="phone" required className="form-field" placeholder="+977 ···" />
+                  <input name="phone" required className="form-field" placeholder="Your phone number" />
                 </div>
               </div>
 
               <div>
                 <label className="jost" style={{ fontSize: "0.56rem", letterSpacing: "0.3em", color: "#7e9085", textTransform: "uppercase", display: "block", marginBottom: "6px" }}>City / District</label>
-                <input name="city" className="form-field" placeholder="Kathmandu, Pokhara..." />
+                <input name="city" className="form-field" placeholder="Your city" />
               </div>
 
               <div>
@@ -973,7 +973,7 @@ export default function Home() {
               )}
 
               <div className="jost" style={{ fontSize: "0.48rem", color: "#6f8276", letterSpacing: "0.2em", textAlign: "center", textTransform: "uppercase" }}>
-                Your information is private and protected · MANTIX · Nepal
+                Your information is private and protected · MANTIX
               </div>
             </form>
           </div>
@@ -992,13 +992,13 @@ export default function Home() {
                 <div className="syncopate" style={{ fontSize: "0.95rem", color: "#4ade80", letterSpacing: "0.34em" }}>MANTIX</div>
               </div>
               <p className="cormorant" style={{ fontSize: "1.05rem", fontStyle: "italic", color: "#7e9085", lineHeight: 1.8, maxWidth: "260px" }}>
-                Smart Fashion. Sharp Identity.<br />Nepal&apos;s next streetwear story — starting now.
+                Smart Fashion. Sharp Identity.<br />A new streetwear story — starting now.
               </p>
             </div>
             {[
               { title: "Navigate", links: ["Collection", "Vision", "Early Access", "Contact"] },
               { title: "Follow", links: ["Instagram", "TikTok", "Facebook"] },
-              { title: "Contact", links: ["mantix@nepal.com", "Kathmandu, NP"] },
+              { title: "Contact", links: ["hello@mantix.com", "Worldwide"] },
             ].map(col => (
               <div key={col.title}>
                 <div className="syncopate" style={{ fontSize: "0.38rem", letterSpacing: "0.44em", color: "#4ade80", textTransform: "uppercase", marginBottom: "24px" }}>{col.title}</div>
