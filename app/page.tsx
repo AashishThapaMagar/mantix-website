@@ -351,7 +351,7 @@ export default function Home() {
           100% { background-position: 0px 0px; }
         }
 
-   @media (max-width: 900px) {
+  @media (max-width: 900px) {
   html,
   body {
     width: 100% !important;
