@@ -351,7 +351,7 @@ export default function Home() {
           100% { background-position: 0px 0px; }
         }
 
-    @media (max-width: 900px) {
+   @media (max-width: 900px) {
   html,
   body {
     width: 100% !important;
@@ -364,7 +364,11 @@ export default function Home() {
   *,
   *::before,
   *::after {
-    max-width: 100%;
+    box-sizing: border-box !important;
+  }
+
+  * {
+    min-width: 0 !important;
   }
 
   a,
@@ -465,52 +469,101 @@ export default function Home() {
 }
 
 @media (max-width: 640px) {
+  html,
+  body {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
   section {
     padding-top: 90px !important;
     padding-bottom: 90px !important;
   }
 
-  /* Fix hero inner container */
-  section:first-of-type > div[style*="padding"] {
-    padding: 110px 22px 70px !important;
+  /* HERO full mobile reset */
+  section:first-of-type {
+    min-height: auto !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
   }
 
-  /* Fix hero grid */
+  section:first-of-type > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 120px 28px 70px !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+  }
+
   section:first-of-type .two-col {
-    gap: 44px !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 0 !important;
   }
 
-  /* Hide big logo/orbit visual on mobile hero */
+  section:first-of-type .two-col > div:first-child {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Hide big orbit/logo visual on mobile hero */
   section:first-of-type .two-col > div:nth-child(2) {
     display: none !important;
   }
 
-  /* Hero headline mobile size */
+  /* Hero title */
   section:first-of-type .cormorant {
-    font-size: clamp(54px, 18vw, 82px) !important;
+    font-size: clamp(58px, 17vw, 78px) !important;
     line-height: 0.95 !important;
+    max-width: 100% !important;
   }
 
   /* Hero paragraph */
   section:first-of-type p {
-    font-size: 0.95rem !important;
-    line-height: 1.8 !important;
+    width: 100% !important;
     max-width: 100% !important;
+    font-size: 0.92rem !important;
+    line-height: 1.85 !important;
+    letter-spacing: 0.03em !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
     margin-top: 34px !important;
-    margin-bottom: 36px !important;
+    margin-bottom: 38px !important;
   }
 
   /* Hero buttons wrapper */
   section:first-of-type div[style*="flex-wrap"] {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
     width: 100% !important;
+    max-width: 100% !important;
     gap: 14px !important;
-    margin-bottom: 48px !important;
+    margin-bottom: 50px !important;
+  }
+
+  /* Hero buttons */
+  section:first-of-type .cta-gold,
+  section:first-of-type .cta-outline {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 16px 12px !important;
+    font-size: 0.38rem !important;
+    letter-spacing: 0.12em !important;
+    white-space: normal !important;
   }
 
   /* Hero stats */
   section:first-of-type div[style*="borderTop"] {
-    flex-direction: column !important;
-    gap: 20px !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    gap: 22px !important;
   }
 
   section:first-of-type div[style*="borderLeft"] {
@@ -593,24 +646,28 @@ export default function Home() {
     padding-right: 18px !important;
   }
 
-  section:first-of-type > div[style*="padding"] {
-    padding: 105px 18px 64px !important;
+  section:first-of-type > div {
+    padding: 105px 24px 64px !important;
   }
 
   section:first-of-type .cormorant {
-    font-size: clamp(48px, 17vw, 72px) !important;
+    font-size: clamp(54px, 16vw, 72px) !important;
+  }
+
+  section:first-of-type p {
+    font-size: 0.88rem !important;
+  }
+
+  section:first-of-type .cta-gold,
+  section:first-of-type .cta-outline {
+    font-size: 0.35rem !important;
+    letter-spacing: 0.1em !important;
+    padding: 15px 12px !important;
   }
 
   .eyebrow {
     font-size: 0.36rem !important;
     letter-spacing: 0.16em !important;
-  }
-
-  .cta-gold,
-  .cta-outline {
-    font-size: 0.38rem !important;
-    letter-spacing: 0.13em !important;
-    padding: 15px 14px !important;
   }
 
   .product-tab {
@@ -620,6 +677,27 @@ export default function Home() {
 
   .form-field {
     font-size: 16px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  header .syncopate {
+    font-size: 0.68rem !important;
+    letter-spacing: 0.16em !important;
+  }
+
+  header .jost {
+    font-size: 0.34rem !important;
+    letter-spacing: 0.18em !important;
+  }
+
+  section:first-of-type > div {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  section:first-of-type .cormorant {
+    font-size: clamp(48px, 15vw, 66px) !important;
   }
 }
       `}</style>
