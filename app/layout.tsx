@@ -31,7 +31,7 @@ export const metadata: Metadata = {
       "The next streetwear identity. Three precision-crafted pieces in our first limited drop.",
     url: "https://mantix-website.vercel.app",
     siteName: "MANTIX",
-    images: ["/MANTIX_LOGO.png"],
+    images: ["/mantix-logo.png"],
     type: "website",
   },
   icons: { icon: "/favicon.ico" },
@@ -45,7 +45,7 @@ const jsonLd = {
       "@id": "https://mantix-website.vercel.app/#organization",
       name: "MANTIX",
       url: "https://mantix-website.vercel.app",
-      logo: "https://mantix-website.vercel.app/MANTIX_LOGO.png",
+      logo: "https://mantix-website.vercel.app/mantix-logo.png",
       slogan: "Smart Fashion. Sharp Identity.",
       description: "Nepal's next streetwear identity — designed T-shirts.",
       address: {
