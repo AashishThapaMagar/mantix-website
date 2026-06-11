@@ -761,7 +761,7 @@ export default function Home() {
               position: "absolute", inset: "-6px", borderRadius: "50%",
               background: "radial-gradient(circle, rgba(74,222,128,0.22), transparent 70%)",
             }} />
-            <Image src="/MANTIX_LOGO.png" alt="MANTIX" width={42} height={42}
+            <Image src="/mantix-logo.png" alt="MANTIX" width={42} height={42}
               style={{ borderRadius: "50%", position: "relative", filter: "drop-shadow(0 0 14px rgba(74,222,128,0.55))" }}
             />
           </div>
@@ -911,7 +911,7 @@ export default function Home() {
                 {/* Logo */}
                 <div style={{ position: "relative", zIndex: 2 }}>
                   <Image
-                    src="/MANTIX_LOGO.png"
+                    src="/mantix-logo.png"
                     alt="MANTIX"
                     width={260}
                     height={260}
@@ -1020,7 +1020,7 @@ export default function Home() {
                   filter: "blur(16px)",
                 }} />
                 <Image
-                  src="/MANTIX_LOGO.png"
+                  src="/mantix-logo.png"
                   alt={products[activeProduct].name}
                   width={230}
                   height={230}
@@ -1173,7 +1173,7 @@ export default function Home() {
                 MANTIX is the next streetwear identity. We start precise, scale with purpose, and let intelligence — artificial and human — guide every future collection.
               </p>
               <div style={{ marginTop: "48px" }}>
-                <Image src="/MANTIX_LOGO.png" alt="MANTIX" width={140} height={140}
+                <Image src="/mantix-logo.png" alt="MANTIX" width={140} height={140}
                   style={{ filter: "drop-shadow(0 0 28px rgba(74,222,128,0.45)) grayscale(10%)", opacity: 0.75 }}
                 />
               </div>
@@ -1251,7 +1251,8 @@ export default function Home() {
 
           {/* Header */}
           <div style={{ textAlign: "center", marginBottom: "88px" }}>
-            <Image src="/MANTIX_LOGO.png" alt="MANTIX" width={60} height={60}
+            <Image src="/mantix-logo
+            .png" alt="MANTIX" width={60} height={60}
               style={{ filter: "drop-shadow(0 0 22px rgba(74,222,128,0.55))", marginBottom: "36px" }}
             />
             <div className="eyebrow" style={{ justifyContent: "center", marginBottom: "28px" }}>Early Access — Limited Spots</div>
@@ -1360,7 +1361,7 @@ export default function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: "60px", marginBottom: "80px" }} className="three-col">
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "28px" }}>
-                <Image src="/MANTIX_LOGO.png" alt="MANTIX" width={40} height={40}
+                <Image src="/mantix-logo.png" alt="MANTIX" width={40} height={40}
                   style={{ borderRadius: "50%", filter: "drop-shadow(0 0 12px rgba(74,222,128,0.5))" }}
                 />
                 <div className="syncopate" style={{ fontSize: "0.95rem", color: "#4ade80", letterSpacing: "0.34em" }}>MANTIX</div>
