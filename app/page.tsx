@@ -937,147 +937,131 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Ghost marquee */}
-        <div style={{ borderTop: "1px solid rgba(255,255,255,0.035)", overflow: "hidden" }}>
-          <div className="marquee-track" style={{ padding: "16px 0" }}>
-            {Array(2).fill(null).map((_, k) => (
-              <div key={k} style={{ display: "flex", alignItems: "center" }}>
-                {["MANTIX", "·", "DESIGNED T-SHIRTS", "·", "WORLDWIDE", "·", "SMART FASHION", "·", "SHARP IDENTITY", "·", "LIMITED DROP", "·", "2026", "·"].map((w, i) => (
-                  <span key={i} className="cormorant" style={{
-                    fontSize: "clamp(60px, 9vw, 120px)", fontWeight: 300,
-                    fontStyle: i % 4 === 0 ? "italic" : "normal",
-                    color: w === "·" ? "rgba(74,222,128,0.55)" : "rgba(134,239,172,0.32)",
-                    textShadow: w === "·" ? "0 0 20px rgba(74,222,128,0.5)" : "0 0 32px rgba(74,222,128,0.4)",
-                    padding: "0 18px", lineHeight: 1, whiteSpace: "nowrap",
-                  }}>{w}</span>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+ {/* RUNNING MANTIS BAND */}
+        <div style={{ position: "relative", height: "240px", borderTop: "1px solid rgba(255,255,255,0.035)", borderBottom: "1px solid rgba(74,222,128,0.06)", overflow: "hidden" }}>
+          <style>{`
+            @keyframes legA { 0%,100% { transform: rotate(15deg); } 50% { transform: rotate(-15deg); } }
+            @keyframes legB { 0%,100% { transform: rotate(-15deg); } 50% { transform: rotate(15deg); } }
+            @keyframes torsoBob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+            @keyframes antSway { 0%,100% { transform: rotate(-5deg); } 50% { transform: rotate(6deg); } }
+            @keyframes mantisShadow {
+              0%,100% { transform: translateX(-50%) scaleX(1);    opacity: 0.5; }
+              50%     { transform: translateX(-50%) scaleX(0.72); opacity: 0.28; }
+            }
+            @keyframes groundDash { from { background-position: 0 0; } to { background-position: -80px 0; } }
+            @keyframes sceneSlide2 { from { transform: translateX(calc(100vw + 60px)); } to { transform: translateX(-160px); } }
+          `}</style>
 
-      {/* ━━━━━━━━━━━━━━━━━━━ COLLECTION */}
-      <section id="collection" style={{ background: "#020705", padding: "140px 100px" }}>
-        <div style={{ maxWidth: "1480px", margin: "0 auto" }}>
+          {/* Parallax stars */}
+          {[0, 1, 2, 3, 4].map((n) => (
+            <div key={`bstar-${n}`} style={{
+              position: "absolute", top: `${15 + n * 14}%`, left: 0,
+              width: "2px", height: "2px", borderRadius: "50%",
+              background: "rgba(160,255,190,0.55)",
+              animation: `sceneSlide2 ${8 + n * 2}s linear ${n * 1.2}s infinite`,
+            }} />
+          ))}
 
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: "80px", flexWrap: "wrap", gap: "32px" }}>
-            <div>
-              <div className="eyebrow" style={{ marginBottom: "28px" }}>The Collection · First Drop</div>
-              <h2 className="cormorant" style={{ fontSize: "clamp(48px, 6vw, 88px)", fontWeight: 300, fontStyle: "italic", color: "#eef6ee", lineHeight: 0.94 }}>
-                Three pieces.<br /><em style={{ color: "#4ade80" }}>One vision.</em>
-              </h2>
-            </div>
-            <p className="jost" style={{ maxWidth: "320px", color: "#97aca0", fontSize: "0.95rem", lineHeight: 1.95, fontWeight: 300, letterSpacing: "0.04em" }}>
-              Each design carries a name, a character, a statement. These aren&apos;t just shirts — they&apos;re the first chapter of something much larger.
-            </p>
-          </div>
+          {/* Pillars the mantis runs past */}
+          {[0, 1, 2, 3].map((n) => (
+            <div key={`bpillar-${n}`} style={{
+              position: "absolute", bottom: "58px", left: 0,
+              width: "10px", height: `${24 + (n % 3) * 16}px`,
+              background: "linear-gradient(to top, rgba(74,222,128,0.5), rgba(74,222,128,0.04))",
+              borderRadius: "3px",
+              animation: `sceneSlide2 ${5 + n * 1.5}s linear ${n * 1.6}s infinite`,
+            }} />
+          ))}
 
-          {/* Tab selector */}
-          <div style={{ display: "flex", gap: "48px", borderBottom: "1px solid rgba(255,255,255,0.04)", marginBottom: "0" }}>
-            {products.map((p, i) => (
-              <button key={p.id} className={`product-tab ${activeProduct === i ? "active" : ""}`} onClick={() => setActiveProduct(i)}>
-                {p.id} — {p.name}
-              </button>
-            ))}
-          </div>
-
-          {/* Product showcase */}
+          {/* Running mantis character */}
           <div style={{
-            display: "grid", gridTemplateColumns: "1fr 1fr",
-            border: "1px solid rgba(74,222,128,0.07)", borderTop: "none",
-            minHeight: "560px", transition: "all 0.4s ease",
-          }} className="two-col">
+            position: "absolute", left: "50%", bottom: "50px",
+            transform: "translateX(-50%)", zIndex: 3,
+          }}>
+            <svg viewBox="0 0 270 170" width="184" height="116" style={{ overflow: "visible", filter: "drop-shadow(0 0 20px rgba(74,222,128,0.5))" }}>
+              <defs>
+                <linearGradient id="mbody" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stopColor="#d6f25a" />
+                  <stop offset="0.45" stopColor="#5fe08a" />
+                  <stop offset="1" stopColor="#166534" />
+                </linearGradient>
+                <linearGradient id="mleg" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stopColor="#7ee89a" />
+                  <stop offset="1" stopColor="#14532d" />
+                </linearGradient>
+                <linearGradient id="mhead" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stopColor="#eaff8c" />
+                  <stop offset="1" stopColor="#3fae5c" />
+                </linearGradient>
+              </defs>
 
-            {/* Visual panel */}
-            <div style={{
-              background: `radial-gradient(ellipse at 50% 55%, ${products[activeProduct].bgColor} 0%, #020705 100%)`,
-              display: "flex", alignItems: "center", justifyContent: "center",
-              position: "relative", overflow: "hidden",
-              borderRight: "1px solid rgba(74,222,128,0.06)",
-              minHeight: "500px",
-            }}>
-              {/* Grid overlay */}
-              <div style={{
-                position: "absolute", inset: 0,
-                backgroundImage: "linear-gradient(rgba(74,222,128,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(74,222,128,0.025) 1px, transparent 1px)",
-                backgroundSize: "48px 48px",
-              }} />
-              {/* Ghost number */}
-              <div className="cormorant" style={{
-                position: "absolute", right: "-1vw", bottom: "-4vw",
-                fontSize: "20vw", fontWeight: 700,
-                color: "transparent", WebkitTextStroke: "1px rgba(74,222,128,0.05)",
-                lineHeight: 1, pointerEvents: "none", userSelect: "none",
-              }}>
-                {products[activeProduct].id}
-              </div>
-              {/* Logo */}
-              <div style={{ position: "relative", zIndex: 2 }}>
-                <div style={{
-                  position: "absolute", inset: "-60px", borderRadius: "50%",
-                  background: `radial-gradient(circle, ${products[activeProduct].accent}1a 0%, transparent 70%)`,
-                  filter: "blur(16px)",
-                }} />
-                <Image
-                  src="/mantix-logo.png"
-                  alt={products[activeProduct].name}
-                  width={230}
-                  height={230}
-                  style={{
-                    filter: `drop-shadow(0 0 50px ${products[activeProduct].accent}55)`,
-                    position: "relative", transition: "filter 0.5s",
-                  }}
-                />
-              </div>
-            </div>
+              {/* legs */}
+              <g fill="none" stroke="url(#mleg)" strokeLinecap="round" strokeLinejoin="round" strokeWidth={6}>
+                <g style={{ transformBox: "view-box", transformOrigin: "86px 96px", animation: "legA 0.5s ease-in-out infinite" }}>
+                  <path d="M86,96 L66,126 L56,156" />
+                </g>
+                <g style={{ transformBox: "view-box", transformOrigin: "106px 94px", animation: "legB 0.5s ease-in-out infinite" }}>
+                  <path d="M106,94 L120,124 L114,156" />
+                </g>
+                <g style={{ transformBox: "view-box", transformOrigin: "126px 90px", animation: "legA 0.5s ease-in-out infinite", animationDelay: "0.1s" }}>
+                  <path d="M126,90 L150,120 L152,156" />
+                </g>
+              </g>
 
-            {/* Info panel */}
-            <div style={{ padding: "64px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-              <div>
-                <div className="syncopate" style={{ fontSize: "0.38rem", letterSpacing: "0.52em", color: "rgba(74,222,128,0.35)", marginBottom: "22px" }}>
-                  {products[activeProduct].id} / 03 — Limited Edition
-                </div>
-                <div className="cormorant" style={{ fontSize: "1rem", fontStyle: "italic", color: "#4ade80", marginBottom: "10px", letterSpacing: "0.1em" }}>
-                  &ldquo;{products[activeProduct].sub}&rdquo;
-                </div>
-                <h3 className="cormorant" style={{ fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 600, color: "#eef6ee", lineHeight: 1.05, marginBottom: "28px" }}>
-                  {products[activeProduct].name}
-                </h3>
-                <hr className="gold-hr" style={{ marginBottom: "28px" }} />
-                <p className="jost" style={{ color: "#9fb4a6", fontSize: "0.95rem", lineHeight: 1.9, fontWeight: 300, marginBottom: "8px" }}>
-                  {products[activeProduct].detail}
-                </p>
-                <p className="jost" style={{ color: "#7e9085", fontSize: "0.85rem", letterSpacing: "0.12em", textTransform: "uppercase" }}>
-                  {products[activeProduct].fit}
-                </p>
-              </div>
-
-              <div>
-                <div style={{ marginBottom: "32px" }}>
-                  <div className="jost" style={{ fontSize: "0.6rem", letterSpacing: "0.3em", color: "#7e9085", textTransform: "uppercase", marginBottom: "10px" }}>Starting at</div>
-                  <div className="cormorant" style={{ fontSize: "3.4rem", fontWeight: 600, color: "#4ade80", lineHeight: 1 }}>{products[activeProduct].price}</div>
-                </div>
-                <a href="#early-access" className="cta-gold" style={{ width: "100%", justifyContent: "center" }}>
-                  Reserve This Piece →
-                </a>
-                {/* Sizes */}
-                <div style={{ display: "flex", gap: "10px", marginTop: "22px" }}>
-                  {["S", "M", "L", "XL", "XXL"].map(s => (
-                    <div key={s} className="jost" style={{
-                      width: "38px", height: "38px",
-                      border: "1px solid rgba(255,255,255,0.06)",
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      fontSize: "0.66rem", color: "#7e9085", letterSpacing: "0.08em",
-                    }}>{s}</div>
-                  ))}
-                </div>
-              </div>
-            </div>
+              {/* torso (bobs) */}
+              <g style={{ transformBox: "view-box", transformOrigin: "100px 80px", animation: "torsoBob 0.5s ease-in-out infinite" }}>
+                {/* abdomen */}
+                <path d="M40,74 Q58,52 104,66 Q124,72 120,90 Q98,102 58,92 Q40,86 40,74 Z" fill="url(#mbody)" stroke="#0f3d1f" strokeWidth={2} />
+                <g stroke="#0f3d1f" strokeWidth={1.4} opacity={0.55} fill="none">
+                  <path d="M70,64 Q72,80 66,92" />
+                  <path d="M86,64 Q88,82 82,94" />
+                  <path d="M102,67 Q104,82 98,92" />
+                </g>
+                <path d="M52,70 Q70,58 100,68" fill="none" stroke="#f4ffb0" strokeWidth={2.4} strokeLinecap="round" opacity={0.7} />
+                {/* pronotum */}
+                <path d="M110,70 L152,58 L160,68 L120,86 Z" fill="url(#mbody)" stroke="#0f3d1f" strokeWidth={2} />
+                {/* raptorial forearm + spikes */}
+                <path d="M132,76 L160,96 L140,106 Z" fill="url(#mleg)" stroke="#0f3d1f" strokeWidth={1.6} strokeLinejoin="round" />
+                <path d="M160,96 L154,90 M150,99 L145,94 M141,103 L137,98" fill="none" stroke="#0a2a14" strokeWidth={2} />
+                {/* head */}
+                <path d="M150,52 L176,60 L156,74 L148,64 Z" fill="url(#mhead)" stroke="#0f3d1f" strokeWidth={2} />
+                <ellipse cx={166} cy={61} rx={6} ry={7.5} fill="#0a2a14" />
+                <ellipse cx={164} cy={58.5} rx={2} ry={2.6} fill="#d6f25a" />
+                {/* antennae */}
+                <g fill="none" stroke="#7ee89a" strokeWidth={2.4} strokeLinecap="round" style={{ transformBox: "view-box", transformOrigin: "167px 53px", animation: "antSway 0.95s ease-in-out infinite" }}>
+                  <path d="M170,54 Q198,30 222,26" />
+                  <path d="M165,52 Q188,38 210,40" />
+                </g>
+              </g>
+            </svg>
           </div>
+
+          {/* Shadow */}
+          <div style={{
+            position: "absolute", left: "50%", bottom: "54px",
+            width: "120px", height: "12px", borderRadius: "50%",
+            background: "radial-gradient(ellipse, rgba(74,222,128,0.4), transparent 70%)",
+            filter: "blur(3px)", zIndex: 1,
+            animation: "mantisShadow 0.5s ease-in-out infinite",
+          }} />
+
+          {/* Ground line */}
+          <div style={{
+            position: "absolute", left: 0, right: 0, bottom: "56px", height: "2px",
+            background: "linear-gradient(90deg, transparent, rgba(74,222,128,0.5) 15%, rgba(74,222,128,0.5) 85%, transparent)",
+          }} />
+          {/* Scrolling ground dashes */}
+          <div style={{
+            position: "absolute", left: 0, right: 0, bottom: "46px", height: "8px",
+            backgroundImage: "repeating-linear-gradient(90deg, rgba(74,222,128,0.3) 0 18px, transparent 18px 40px)",
+            backgroundSize: "80px 100%",
+            animation: "groundDash 0.6s linear infinite",
+            WebkitMaskImage: "linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent)",
+            maskImage: "linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent)",
+          }} />
         </div>
       </section>
-
+      
       {/* ━━━━━━━━━━━━━━━━━━━ AI STYLE MATCH */}
       <section id="style-match" style={{ background: "#04120c", padding: "140px 100px", borderTop: "1px solid rgba(74,222,128,0.07)", borderBottom: "1px solid rgba(74,222,128,0.07)" }}>
         <div style={{ maxWidth: "760px", margin: "0 auto", textAlign: "center" }}>
