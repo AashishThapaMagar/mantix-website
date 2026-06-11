@@ -946,7 +946,8 @@ export default function Home() {
                   <span key={i} className="cormorant" style={{
                     fontSize: "clamp(60px, 9vw, 120px)", fontWeight: 300,
                     fontStyle: i % 4 === 0 ? "italic" : "normal",
-                    color: w === "·" ? "rgba(74,222,128,0.18)" : "rgba(255,255,255,0.03)",
+                    color: w === "·" ? "rgba(74,222,128,0.55)" : "rgba(134,239,172,0.32)",
+                    textShadow: w === "·" ? "0 0 20px rgba(74,222,128,0.5)" : "0 0 32px rgba(74,222,128,0.4)",
                     padding: "0 18px", lineHeight: 1, whiteSpace: "nowrap",
                   }}>{w}</span>
                 ))}
