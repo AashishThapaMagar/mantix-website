@@ -61,7 +61,7 @@ export default function Home() {
       sub: "The Venom",
       price: "Rs. 1,499",
       fit: "Oversized Fit",
-      detail: "Core MANTIX identity colorway",
+      detail: "Core MANTRIX identity colorway",
       bgColor: "#0d2b1a",
       accent: "#22c55e",
     },
@@ -69,8 +69,8 @@ export default function Home() {
 
   const faqs = [
     {
-      q: "When does the first MANTIX drop launch?",
-      a: "MANTIX launches its first limited drop in 2026. Join the early-access waitlist to be notified first and lock in early pricing before we go public.",
+      q: "When does the first MANTRIX drop launch?",
+      a: "MANTRIX launches its first limited drop in 2026. Join the early-access waitlist to be notified first and lock in early pricing before we go public.",
     },
     {
       q: "How do I know my size?",
@@ -85,8 +85,8 @@ export default function Home() {
       a: "For the first drop we plan to support cash on delivery alongside popular digital payment options. Final options are confirmed with early-access members before launch.",
     },
     {
-      q: "What makes MANTIX different?",
-      a: "Every MANTIX piece is an original, intentional design — not a generic print. We start precise with a small limited drop, keep premium quality affordable, and let customer feedback shape future collections.",
+      q: "What makes MANTRIX different?",
+      a: "Every MANTRIX piece is an original, intentional design — not a generic print. We start precise with a small limited drop, keep premium quality affordable, and let customer feedback shape future collections.",
     },
     {
       q: "Is this a limited release?",
@@ -742,7 +742,7 @@ export default function Home() {
       {/* Intro loader */}
       <div className={`intro ${loaded ? "hide" : ""}`}>
         <div className="intro-line" />
-        <div className="intro-label">MANTIX — 2026</div>
+        <div className="intro-label">MANTRIX — 2026</div>
       </div>
 
       {/* ━━━━━━━━━━━━━━━━━━━ HEADER */}
@@ -761,12 +761,12 @@ export default function Home() {
               position: "absolute", inset: "-6px", borderRadius: "50%",
               background: "radial-gradient(circle, rgba(74,222,128,0.22), transparent 70%)",
             }} />
-            <Image src="/mantix-logo.png" alt="MANTIX" width={42} height={42}
+            <Image src="/mantrix-logo.png" alt="MANTRIX" width={42} height={42}
              style={{ position: "relative", filter: "drop-shadow(0 0 14px rgba(74,222,128,0.55))" }}
             />
           </div>
           <div>
-            <div className="syncopate" style={{ fontSize: "0.88rem", color: "#4ade80", letterSpacing: "0.34em", lineHeight: 1 }}>MANTIX</div>
+            <div className="syncopate" style={{ fontSize: "0.88rem", color: "#4ade80", letterSpacing: "0.34em", lineHeight: 1 }}>MANTRIX</div>
             <div className="jost" style={{ fontSize: "0.46rem", letterSpacing: "0.42em", color: "#7e9085", textTransform: "uppercase", marginTop: "3px" }}>Designed T-Shirts</div>
           </div>
         </a>
@@ -850,7 +850,7 @@ export default function Home() {
                 marginTop: "44px", marginBottom: "52px",
                 letterSpacing: "0.04em",
               }}>
-                Not just a T-shirt. A declaration. MANTIX launches with three precision-crafted pieces built for the next generation — where streetwear meets sharp identity.
+                Not just a T-shirt. A declaration. MANTRIX launches with three precision-crafted pieces built for the next generation — where streetwear meets sharp identity.
               </p>
 
               <div className={`reveal ${loaded ? "in" : ""} d3`} style={{ display: "flex", gap: "16px", flexWrap: "wrap", marginBottom: "72px" }}>
@@ -911,8 +911,8 @@ export default function Home() {
                 {/* Logo */}
                 <div style={{ position: "relative", zIndex: 2 }}>
                   <Image
-                    src="/mantix-logo.png"
-                    alt="MANTIX"
+                    src="/mantrix-logo.png"
+                    alt="MANTRIX"
                     width={260}
                     height={260}
                     priority
@@ -937,125 +937,146 @@ export default function Home() {
           </div>
         </div>
 
- {/* RUNNING MANTIS BAND */}
+ {/* VICE CITY CHEETAH — MANTRIX */}
         <div style={{ position: "relative", height: "240px", borderTop: "1px solid rgba(255,255,255,0.035)", borderBottom: "1px solid rgba(74,222,128,0.06)", overflow: "hidden" }}>
           <style>{`
-            @keyframes legA { 0%,100% { transform: rotate(15deg); } 50% { transform: rotate(-15deg); } }
-            @keyframes legB { 0%,100% { transform: rotate(-15deg); } 50% { transform: rotate(15deg); } }
-            @keyframes torsoBob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
-            @keyframes antSway { 0%,100% { transform: rotate(-5deg); } 50% { transform: rotate(6deg); } }
-            @keyframes mantisShadow {
-              0%,100% { transform: translateX(-50%) scaleX(1);    opacity: 0.5; }
-              50%     { transform: translateX(-50%) scaleX(0.72); opacity: 0.28; }
-            }
-            @keyframes groundDash { from { background-position: 0 0; } to { background-position: -80px 0; } }
-            @keyframes sceneSlide2 { from { transform: translateX(calc(100vw + 60px)); } to { transform: translateX(-160px); } }
+            @keyframes carDrive    { from { transform: translateX(calc(100vw + 340px)); } to { transform: translateX(-380px); } }
+            @keyframes wheelSpin   { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+            @keyframes carGlow     { 0%,100%{filter:drop-shadow(0 0 14px rgba(74,222,128,0.55))} 50%{filter:drop-shadow(0 0 28px rgba(74,222,128,0.9))} }
+            @keyframes groundDash  { from { background-position: 0 0; } to { background-position: -80px 0; } }
+            @keyframes sceneSlide2 { from { transform: translateX(calc(100vw + 60px)); } to { transform: translateX(-180px); } }
           `}</style>
 
-          {/* Parallax stars */}
+          {/* Stars */}
           {[0, 1, 2, 3, 4].map((n) => (
             <div key={`bstar-${n}`} style={{
-              position: "absolute", top: `${15 + n * 14}%`, left: 0,
+              position: "absolute", top: `${10 + n * 14}%`, left: 0,
               width: "2px", height: "2px", borderRadius: "50%",
               background: "rgba(160,255,190,0.55)",
-              animation: `sceneSlide2 ${8 + n * 2}s linear ${n * 1.2}s infinite`,
+              animation: `sceneSlide2 ${6 + n * 1.5}s linear ${n * 1.0}s infinite`,
             }} />
           ))}
 
-          {/* Pillars the mantis runs past */}
-          {[0, 1, 2, 3].map((n) => (
+          {/* City buildings */}
+          {[0, 1, 2, 3, 4, 5].map((n) => (
             <div key={`bpillar-${n}`} style={{
-              position: "absolute", bottom: "58px", left: 0,
-              width: "10px", height: `${24 + (n % 3) * 16}px`,
-              background: "linear-gradient(to top, rgba(74,222,128,0.5), rgba(74,222,128,0.04))",
-              borderRadius: "3px",
-              animation: `sceneSlide2 ${5 + n * 1.5}s linear ${n * 1.6}s infinite`,
+              position: "absolute", bottom: "90px", left: 0,
+              width: `${6 + (n % 3) * 4}px`, height: `${32 + (n % 4) * 24}px`,
+              background: "linear-gradient(to top, rgba(74,222,128,0.45), rgba(74,222,128,0.03))",
+              borderRadius: "2px 2px 0 0",
+              animation: `sceneSlide2 ${4 + n * 0.9}s linear ${n * 0.65}s infinite`,
             }} />
           ))}
 
-          {/* Running mantis character */}
+          {/* Cheetah car */}
           <div style={{
-            position: "absolute", left: "50%", bottom: "50px",
-            transform: "translateX(-50%)", zIndex: 3,
+            position: "absolute", bottom: "58px", left: 0,
+            animation: "carDrive 6.5s linear infinite",
+            willChange: "transform",
           }}>
-            <svg viewBox="0 0 270 170" width="184" height="116" style={{ overflow: "visible", filter: "drop-shadow(0 0 20px rgba(74,222,128,0.5))" }}>
+            <svg viewBox="0 0 300 88" width="300" height="88" style={{ overflow: "visible", animation: "carGlow 2.2s ease-in-out infinite" }}>
               <defs>
-                <linearGradient id="mbody" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stopColor="#d6f25a" />
-                  <stop offset="0.45" stopColor="#5fe08a" />
-                  <stop offset="1" stopColor="#166534" />
+                <linearGradient id="cBody" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stopColor="#141a14" />
+                  <stop offset="0.55" stopColor="#0c0c0c" />
+                  <stop offset="1" stopColor="#060606" />
                 </linearGradient>
-                <linearGradient id="mleg" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stopColor="#7ee89a" />
-                  <stop offset="1" stopColor="#14532d" />
+                <linearGradient id="cGlass" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stopColor="rgba(74,222,128,0.28)" />
+                  <stop offset="1" stopColor="rgba(10,50,24,0.14)" />
                 </linearGradient>
-                <linearGradient id="mhead" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stopColor="#eaff8c" />
-                  <stop offset="1" stopColor="#3fae5c" />
+                <linearGradient id="cWheel" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stopColor="#282828" />
+                  <stop offset="1" stopColor="#0e0e0e" />
+                </linearGradient>
+                <linearGradient id="cShine" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stopColor="rgba(74,222,128,0.22)" />
+                  <stop offset="1" stopColor="rgba(74,222,128,0)" />
                 </linearGradient>
               </defs>
 
-              {/* legs */}
-              <g fill="none" stroke="url(#mleg)" strokeLinecap="round" strokeLinejoin="round" strokeWidth={6}>
-                <g style={{ transformBox: "view-box", transformOrigin: "86px 96px", animation: "legA 0.5s ease-in-out infinite" }}>
-                  <path d="M86,96 L66,126 L56,156" />
-                </g>
-                <g style={{ transformBox: "view-box", transformOrigin: "106px 94px", animation: "legB 0.5s ease-in-out infinite" }}>
-                  <path d="M106,94 L120,124 L114,156" />
-                </g>
-                <g style={{ transformBox: "view-box", transformOrigin: "126px 90px", animation: "legA 0.5s ease-in-out infinite", animationDelay: "0.1s" }}>
-                  <path d="M126,90 L150,120 L152,156" />
-                </g>
+              {/* ─── BODY ─── */}
+              <path d="M16,66 L8,58 L14,48 Q40,26 68,22 L80,8 L86,6 L178,6 L200,18 L220,34 Q255,44 272,54 L274,62 L262,66 Q224,46 188,66 L110,66 Q66,46 26,66 Z"
+                fill="url(#cBody)" stroke="#263326" strokeWidth="1.2" strokeLinejoin="round" />
+
+              {/* Roof / hood highlight stripe */}
+              <path d="M14,48 Q40,26 68,22 L80,8 L86,6 L140,6"
+                fill="none" stroke="rgba(74,222,128,0.16)" strokeWidth="2" strokeLinecap="round" />
+
+              {/* ─── WINDOWS ─── */}
+              <path d="M68,22 L80,8 L86,6 L178,6 L200,18 L182,32 L86,32 Z"
+                fill="url(#cGlass)" stroke="rgba(74,222,128,0.32)" strokeWidth="0.8" />
+              {/* A-pillar divider */}
+              <line x1="84" y1="7" x2="82" y2="32" stroke="rgba(74,222,128,0.28)" strokeWidth="1.4" />
+              {/* Window bottom reflection */}
+              <line x1="68" y1="28" x2="180" y2="28" stroke="rgba(74,222,128,0.08)" strokeWidth="1" />
+
+              {/* ─── DOOR LINE ─── */}
+              <line x1="148" y1="32" x2="152" y2="66" stroke="#1e2a1e" strokeWidth="1.2" opacity="0.9" />
+
+              {/* ─── TESTAROSSA SIDE STRAKES ─── */}
+              {[0,1,2,3,4,5,6].map((i) => (
+                <rect key={i} x={194 + i * 7} y={28} width={4} height={22} rx={1}
+                  fill="#050805" stroke="rgba(74,222,128,0.2)" strokeWidth="0.6" />
+              ))}
+
+              {/* ─── MANTRIX LIVERY ─── */}
+              <text x="128" y="50" fontFamily="'Syncopate', sans-serif"
+                fontSize="13" fill="#4ade80" letterSpacing="3" fontWeight="700" opacity="0.9">MANTRIX</text>
+
+              {/* ─── HEADLIGHT (front) ─── */}
+              <rect x="10" y="50" width="9" height="11" rx="2" fill="#ffffcc" opacity="0.95" />
+              <ellipse cx="14" cy="55" rx="14" ry="8" fill="rgba(255,255,160,0.1)" />
+
+              {/* ─── TAILLIGHT (rear) ─── */}
+              <rect x="266" y="48" width="9" height="16" rx="1.5" fill="#ff2424" opacity="0.92" />
+              <rect x="268" y="46" width="6" height="20" rx="1" fill="rgba(255,36,36,0.22)" />
+
+              {/* ─── EXHAUST GLOW ─── */}
+              <ellipse cx="280" cy="64" rx="6" ry="3.5" fill="rgba(74,222,128,0.18)" />
+              <ellipse cx="291" cy="64" rx="9" ry="4" fill="rgba(74,222,128,0.10)" />
+              <ellipse cx="304" cy="63" rx="12" ry="4.5" fill="rgba(74,222,128,0.05)" />
+
+              {/* ─── FRONT WHEEL ─── */}
+              <g style={{ transformBox: "view-box", transformOrigin: "66px 71px", animation: "wheelSpin 0.48s linear infinite" }}>
+                <circle cx="66" cy="71" r="17" fill="url(#cWheel)" stroke="#1c1c1c" strokeWidth="1.2" />
+                <circle cx="66" cy="71" r="11" fill="#161616" stroke="#202020" strokeWidth="0.8" />
+                <line x1="66" y1="54" x2="66" y2="88" stroke="#4ade80" strokeWidth="1.5" />
+                <line x1="49" y1="71" x2="83" y2="71" stroke="#4ade80" strokeWidth="1.5" />
+                <line x1="54" y1="59" x2="78" y2="83" stroke="#4ade80" strokeWidth="1.1" />
+                <line x1="78" y1="59" x2="54" y2="83" stroke="#4ade80" strokeWidth="1.1" />
+                <circle cx="66" cy="71" r="5" fill="#4ade80" />
+                <circle cx="66" cy="71" r="3" fill="#0f2a18" />
               </g>
 
-              {/* torso (bobs) */}
-              <g style={{ transformBox: "view-box", transformOrigin: "100px 80px", animation: "torsoBob 0.5s ease-in-out infinite" }}>
-                {/* abdomen */}
-                <path d="M40,74 Q58,52 104,66 Q124,72 120,90 Q98,102 58,92 Q40,86 40,74 Z" fill="url(#mbody)" stroke="#0f3d1f" strokeWidth={2} />
-                <g stroke="#0f3d1f" strokeWidth={1.4} opacity={0.55} fill="none">
-                  <path d="M70,64 Q72,80 66,92" />
-                  <path d="M86,64 Q88,82 82,94" />
-                  <path d="M102,67 Q104,82 98,92" />
-                </g>
-                <path d="M52,70 Q70,58 100,68" fill="none" stroke="#f4ffb0" strokeWidth={2.4} strokeLinecap="round" opacity={0.7} />
-                {/* pronotum */}
-                <path d="M110,70 L152,58 L160,68 L120,86 Z" fill="url(#mbody)" stroke="#0f3d1f" strokeWidth={2} />
-                {/* raptorial forearm + spikes */}
-                <path d="M132,76 L160,96 L140,106 Z" fill="url(#mleg)" stroke="#0f3d1f" strokeWidth={1.6} strokeLinejoin="round" />
-                <path d="M160,96 L154,90 M150,99 L145,94 M141,103 L137,98" fill="none" stroke="#0a2a14" strokeWidth={2} />
-                {/* head */}
-                <path d="M150,52 L176,60 L156,74 L148,64 Z" fill="url(#mhead)" stroke="#0f3d1f" strokeWidth={2} />
-                <ellipse cx={166} cy={61} rx={6} ry={7.5} fill="#0a2a14" />
-                <ellipse cx={164} cy={58.5} rx={2} ry={2.6} fill="#d6f25a" />
-                {/* antennae */}
-                <g fill="none" stroke="#7ee89a" strokeWidth={2.4} strokeLinecap="round" style={{ transformBox: "view-box", transformOrigin: "167px 53px", animation: "antSway 0.95s ease-in-out infinite" }}>
-                  <path d="M170,54 Q198,30 222,26" />
-                  <path d="M165,52 Q188,38 210,40" />
-                </g>
+              {/* ─── REAR WHEEL ─── */}
+              <g style={{ transformBox: "view-box", transformOrigin: "224px 71px", animation: "wheelSpin 0.48s linear infinite" }}>
+                <circle cx="224" cy="71" r="17" fill="url(#cWheel)" stroke="#1c1c1c" strokeWidth="1.2" />
+                <circle cx="224" cy="71" r="11" fill="#161616" stroke="#202020" strokeWidth="0.8" />
+                <line x1="224" y1="54" x2="224" y2="88" stroke="#4ade80" strokeWidth="1.5" />
+                <line x1="207" y1="71" x2="241" y2="71" stroke="#4ade80" strokeWidth="1.5" />
+                <line x1="212" y1="59" x2="236" y2="83" stroke="#4ade80" strokeWidth="1.1" />
+                <line x1="236" y1="59" x2="212" y2="83" stroke="#4ade80" strokeWidth="1.1" />
+                <circle cx="224" cy="71" r="5" fill="#4ade80" />
+                <circle cx="224" cy="71" r="3" fill="#0f2a18" />
               </g>
+
+              {/* ─── GROUND SHADOW ─── */}
+              <ellipse cx="148" cy="89" rx="132" ry="5" fill="rgba(0,0,0,0.45)" />
             </svg>
           </div>
 
-          {/* Shadow */}
-          <div style={{
-            position: "absolute", left: "50%", bottom: "54px",
-            width: "120px", height: "12px", borderRadius: "50%",
-            background: "radial-gradient(ellipse, rgba(74,222,128,0.4), transparent 70%)",
-            filter: "blur(3px)", zIndex: 1,
-            animation: "mantisShadow 0.5s ease-in-out infinite",
-          }} />
-
           {/* Ground line */}
           <div style={{
-            position: "absolute", left: 0, right: 0, bottom: "56px", height: "2px",
+            position: "absolute", left: 0, right: 0, bottom: "58px", height: "2px",
             background: "linear-gradient(90deg, transparent, rgba(74,222,128,0.5) 15%, rgba(74,222,128,0.5) 85%, transparent)",
           }} />
-          {/* Scrolling ground dashes */}
+          {/* Scrolling road dashes */}
           <div style={{
             position: "absolute", left: 0, right: 0, bottom: "46px", height: "8px",
             backgroundImage: "repeating-linear-gradient(90deg, rgba(74,222,128,0.3) 0 18px, transparent 18px 40px)",
             backgroundSize: "80px 100%",
-            animation: "groundDash 0.6s linear infinite",
+            animation: "groundDash 0.35s linear infinite",
             WebkitMaskImage: "linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent)",
             maskImage: "linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent)",
           }} />
@@ -1070,7 +1091,7 @@ export default function Home() {
             Find your<br /><em style={{ color: "#4ade80" }}>piece.</em>
           </h2>
           <p className="jost" style={{ color: "#8da195", fontSize: "0.95rem", lineHeight: 1.9, fontWeight: 300, maxWidth: "440px", margin: "0 auto 48px" }}>
-            Describe your style or mood, and our AI matches you with the MANTIX piece that fits you best.
+            Describe your style or mood, and our AI matches you with the MANTRIX piece that fits you best.
           </p>
 
           <div style={{ marginBottom: "24px" }}>
@@ -1127,7 +1148,7 @@ export default function Home() {
         }} />
         <div style={{ maxWidth: "860px", margin: "0 auto", textAlign: "center", position: "relative" }}>
           <div className="cormorant" style={{ fontSize: "clamp(13px, 1.8vw, 20px)", fontStyle: "italic", color: "rgba(74,222,128,0.4)", marginBottom: "36px", letterSpacing: "0.1em" }}>
-            — A word from MANTIX —
+            — A word from MANTRIX —
           </div>
           <blockquote className="cormorant" style={{
             fontSize: "clamp(30px, 5vw, 64px)", fontWeight: 300, fontStyle: "italic",
@@ -1137,12 +1158,12 @@ export default function Home() {
           </blockquote>
           <hr className="gold-hr" style={{ margin: "44px auto", width: "60px", background: "linear-gradient(90deg, transparent, rgba(74,222,128,0.4), transparent)" }} />
           <div className="jost" style={{ fontSize: "0.66rem", letterSpacing: "0.36em", color: "#7e9085", textTransform: "uppercase" }}>
-            MANTIX — Est. 2026
+            MANTRIX — Est. 2026
           </div>
         </div>
       </section>
 
-      {/* ━━━━━━━━━━━━━━━━━━━ WHY MANTIX */}
+      {/* ━━━━━━━━━━━━━━━━━━━ WHY MANTRIX */}
       <section id="why" style={{ background: "#020705", padding: "140px 100px" }}>
         <div style={{ maxWidth: "1480px", margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "0.75fr 1.25fr", gap: "100px", alignItems: "start" }} className="two-col">
@@ -1154,10 +1175,10 @@ export default function Home() {
               </h2>
               <hr className="gold-hr" style={{ marginBottom: "32px" }} />
               <p className="jost" style={{ color: "#97aca0", fontSize: "0.95rem", lineHeight: 1.95, fontWeight: 300 }}>
-                MANTIX is the next streetwear identity. We start precise, scale with purpose, and let intelligence — artificial and human — guide every future collection.
+                MANTRIX is the next streetwear identity. We start precise, scale with purpose, and let intelligence — artificial and human — guide every future collection.
               </p>
               <div style={{ marginTop: "48px" }}>
-                <Image src="/mantix-logo.png" alt="MANTIX" width={140} height={140}
+                <Image src="/mantrix-logo.png" alt="MANTRIX" width={140} height={140}
                   style={{ filter: "drop-shadow(0 0 28px rgba(74,222,128,0.45)) grayscale(10%)", opacity: 0.75 }}
                 />
               </div>
@@ -1165,7 +1186,7 @@ export default function Home() {
 
             <div>
               {[
-                { n: "I", title: "Designed T-Shirts", body: "Original MANTIX graphics crafted for everyday style and identity. Every line, every placement — intentional." },
+                { n: "I", title: "Designed T-Shirts", body: "Original MANTRIX graphics crafted for everyday style and identity. Every line, every placement — intentional." },
                 { n: "II", title: "Modern Streetwear", body: "Minimal, bold, and youth-focused fashion for a new generation. No compromise on vision." },
                 { n: "III", title: "Affordable Premium", body: "We believe exceptional design shouldn't demand exceptional prices. Early customers always get the best." },
                 { n: "IV", title: "AI-Powered Future", body: "Your choices and feedback directly shape our next collections. Fashion that listens, learns, and evolves." },
@@ -1235,7 +1256,7 @@ export default function Home() {
 
           {/* Header */}
           <div style={{ textAlign: "center", marginBottom: "88px" }}>
-            <Image src="/mantix-logo.png" alt="MANTIX" width={60} height={60}
+            <Image src="/mantrix-logo.png" alt="MANTRIX" width={60} height={60}
               style={{ filter: "drop-shadow(0 0 22px rgba(74,222,128,0.55))", marginBottom: "36px" }}
             />
             <div className="eyebrow" style={{ justifyContent: "center", marginBottom: "28px" }}>Early Access — Limited Spots</div>
@@ -1331,7 +1352,7 @@ export default function Home() {
               )}
 
               <div className="jost" style={{ fontSize: "0.48rem", color: "#6f8276", letterSpacing: "0.2em", textAlign: "center", textTransform: "uppercase" }}>
-                Your information is private and protected · MANTIX
+                Your information is private and protected · MANTRIX
               </div>
             </form>
           </div>
@@ -1344,10 +1365,10 @@ export default function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: "60px", marginBottom: "80px" }} className="three-col">
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "28px" }}>
-                <Image src="/mantix-logo.png" alt="MANTIX" width={40} height={40}
+                <Image src="/mantrix-logo.png" alt="MANTRIX" width={40} height={40}
                style={{ filter: "drop-shadow(0 0 12px rgba(74,222,128,0.5))" }}
                 />
-                <div className="syncopate" style={{ fontSize: "0.95rem", color: "#4ade80", letterSpacing: "0.34em" }}>MANTIX</div>
+                <div className="syncopate" style={{ fontSize: "0.95rem", color: "#4ade80", letterSpacing: "0.34em" }}>MANTRIX</div>
               </div>
               <p className="cormorant" style={{ fontSize: "1.05rem", fontStyle: "italic", color: "#7e9085", lineHeight: 1.8, maxWidth: "260px" }}>
                 Smart Fashion. Sharp Identity.<br />A new streetwear story — starting now.
@@ -1356,7 +1377,7 @@ export default function Home() {
             {[
               { title: "Navigate", links: ["Collection", "Vision", "Early Access", "Contact"] },
               { title: "Follow", links: ["Instagram", "TikTok", "Facebook"] },
-              { title: "Contact", links: ["hello@mantix.com", "Worldwide"] },
+              { title: "Contact", links: ["hello@mantrix.com", "Worldwide"] },
             ].map(col => (
               <div key={col.title}>
                 <div className="syncopate" style={{ fontSize: "0.38rem", letterSpacing: "0.44em", color: "#4ade80", textTransform: "uppercase", marginBottom: "24px" }}>{col.title}</div>
@@ -1370,7 +1391,7 @@ export default function Home() {
           </div>
 
           <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", paddingTop: "28px", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "12px" }}>
-            <span className="jost" style={{ fontSize: "0.64rem", color: "#7c8f83", letterSpacing: "0.2em" }}>© 2026 MANTIX. All rights reserved.</span>
+            <span className="jost" style={{ fontSize: "0.64rem", color: "#7c8f83", letterSpacing: "0.2em" }}>© 2026 MANTRIX. All rights reserved.</span>
             <span className="jost" style={{ fontSize: "0.64rem", color: "#7c8f83", letterSpacing: "0.2em" }}>Building smart fashion — step by step.</span>
           </div>
         </div>

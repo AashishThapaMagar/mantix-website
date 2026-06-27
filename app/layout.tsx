@@ -13,12 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mantix-website.vercel.app"),
-  title: "MANTIX — Designed T-Shirts | Streetwear",
+  metadataBase: new URL("https://mantrix-website.vercel.app"),
+  title: "MANTRIX — Designed T-Shirts | Streetwear",
   description:
-    "MANTIX is the next streetwear identity. Three precision-crafted designed T-shirts in our first limited drop. Smart fashion, sharp identity — starting from Rs. 1,399.",
+    "MANTRIX is the next streetwear identity. Three precision-crafted designed T-shirts in our first limited drop. Smart fashion, sharp identity — starting from Rs. 1,399.",
   keywords: [
-    "MANTIX",
+    "MANTRIX",
     "streetwear",
     "designed t-shirts",
     "oversized t-shirt",
@@ -26,12 +26,12 @@ export const metadata: Metadata = {
     "premium streetwear",
   ],
   openGraph: {
-    title: "MANTIX — Designed T-Shirts | Streetwear",
+    title: "MANTRIX — Designed T-Shirts | Streetwear",
     description:
       "The next streetwear identity. Three precision-crafted pieces in our first limited drop.",
-    url: "https://mantix-website.vercel.app",
-    siteName: "MANTIX",
-    images: ["/mantix-logo.png"],
+    url: "https://mantrix-website.vercel.app",
+    siteName: "MANTRIX",
+    images: ["/mantrix-logo.png"],
     type: "website",
   },
   icons: { icon: "/favicon.ico" },
@@ -42,10 +42,10 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://mantix-website.vercel.app/#organization",
-      name: "MANTIX",
-      url: "https://mantix-website.vercel.app",
-      logo: "https://mantix-website.vercel.app/mantix-logo.png",
+      "@id": "https://mantrix-website.vercel.app/#organization",
+      name: "MANTRIX",
+      url: "https://mantrix-website.vercel.app",
+      logo: "https://mantrix-website.vercel.app/mantrix-logo.png",
       slogan: "Smart Fashion. Sharp Identity.",
       description: "Nepal's next streetwear identity — designed T-shirts.",
       address: {
@@ -56,7 +56,7 @@ const jsonLd = {
     },
     {
       "@type": "ItemList",
-      name: "MANTIX First Collection",
+      name: "MANTRIX First Collection",
       itemListElement: [
         {
           "@type": "ListItem",
@@ -66,7 +66,7 @@ const jsonLd = {
             name: "The Phantom — Black Oversized",
             description: "Premium everyday streetwear essential",
             category: "Streetwear T-Shirt",
-            brand: { "@type": "Brand", name: "MANTIX" },
+            brand: { "@type": "Brand", name: "MANTRIX" },
             offers: { "@type": "Offer", price: "1499", priceCurrency: "NPR", availability: "https://schema.org/PreOrder" },
           },
         },
@@ -78,7 +78,7 @@ const jsonLd = {
             name: "The Ghost — White Essential",
             description: "Clean minimal design for daily wear",
             category: "Streetwear T-Shirt",
-            brand: { "@type": "Brand", name: "MANTIX" },
+            brand: { "@type": "Brand", name: "MANTRIX" },
             offers: { "@type": "Offer", price: "1399", priceCurrency: "NPR", availability: "https://schema.org/PreOrder" },
           },
         },
@@ -88,9 +88,9 @@ const jsonLd = {
           item: {
             "@type": "Product",
             name: "The Venom — Dark Green Signature",
-            description: "Core MANTIX identity colorway",
+            description: "Core MANTRIX identity colorway",
             category: "Streetwear T-Shirt",
-            brand: { "@type": "Brand", name: "MANTIX" },
+            brand: { "@type": "Brand", name: "MANTRIX" },
             offers: { "@type": "Offer", price: "1499", priceCurrency: "NPR", availability: "https://schema.org/PreOrder" },
           },
         },

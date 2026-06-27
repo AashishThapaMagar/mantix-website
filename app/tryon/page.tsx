@@ -13,7 +13,7 @@ const products = [
     fit: "Oversized Fit",
     accent: "#c8f059",
     color: "black",
-    description: "Premium everyday streetwear essential. Oversized silhouette with MANTIX signature graphics.",
+    description: "Premium everyday streetwear essential. Oversized silhouette with MANTRIX signature graphics.",
     imagePrompt: "black oversized streetwear t-shirt with minimal graphic design, flat lay product shot"
   },
   {
@@ -24,7 +24,7 @@ const products = [
     fit: "Regular / Oversized",
     accent: "#f0f0f0",
     color: "white",
-    description: "Clean minimal design for daily wear. Pure white with subtle MANTIX identity.",
+    description: "Clean minimal design for daily wear. Pure white with subtle MANTRIX identity.",
     imagePrompt: "white essential t-shirt with minimal clean design, flat lay product shot"
   },
   {
@@ -35,7 +35,7 @@ const products = [
     fit: "Oversized Fit",
     accent: "#22c55e",
     color: "dark green",
-    description: "Core MANTIX identity colorway. Deep forest green with bold MANTIX signature.",
+    description: "Core MANTRIX identity colorway. Deep forest green with bold MANTRIX signature.",
     imagePrompt: "dark green oversized signature t-shirt with bold graphic design, flat lay product shot"
   },
 ];
@@ -66,7 +66,7 @@ export default function TryOnPage() {
   ];
 
   useEffect(() => {
-    const saved = sessionStorage.getItem("mantix_profile");
+    const saved = sessionStorage.getItem("mantrix_profile");
     if (!saved) { router.push("/profile"); return; }
     setProfile(JSON.parse(saved));
   }, [router]);
@@ -121,7 +121,7 @@ export default function TryOnPage() {
     if (!result) return;
     const a = document.createElement("a");
     a.href = result;
-    a.download = `mantix-tryon-${products[selected].id}.png`;
+    a.download = `mantrix-tryon-${products[selected].id}.png`;
     a.click();
   };
 
@@ -178,9 +178,9 @@ export default function TryOnPage() {
         backdropFilter: "blur(28px)",
       }}>
         <a href="/" style={{ display: "flex", alignItems: "center", gap: "16px", textDecoration: "none" }}>
-          <Image src="/mantix-logo.png" alt="MANTIX" width={42} height={42}
+          <Image src="/mantrix-logo.png" alt="MANTRIX" width={42} height={42}
             style={{ filter: "drop-shadow(0 0 14px rgba(74,222,128,0.55))" }} />
-          <div className="syncopate" style={{ fontSize: "0.88rem", color: "#4ade80", letterSpacing: "0.34em" }}>MANTIX</div>
+          <div className="syncopate" style={{ fontSize: "0.88rem", color: "#4ade80", letterSpacing: "0.34em" }}>MANTRIX</div>
         </a>
         <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
           <img src={profile.photo} alt="You" style={{ width: "36px", height: "36px", borderRadius: "50%", objectFit: "cover", border: "1px solid rgba(74,222,128,0.4)" }} />
@@ -203,7 +203,7 @@ export default function TryOnPage() {
                 Pick your<br /><em style={{ color: "#4ade80" }}>piece.</em>
               </h1>
               <p className="jost" style={{ color: "#8da195", fontSize: "0.9rem", lineHeight: 1.8, fontWeight: 300 }}>
-                Select a MANTIX design and see exactly how it looks on you.
+                Select a MANTRIX design and see exactly how it looks on you.
               </p>
             </div>
 

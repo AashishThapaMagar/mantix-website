@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 const PRODUCTS = `
 1. The Phantom (Black Oversized) — Rs. 1,499. Premium everyday streetwear essential. Oversized fit. Best for: minimal, all-black, low-key, versatile daily wear.
 2. The Ghost (White Essential) — Rs. 1,399. Clean minimal design for daily wear. Regular or oversized fit. Best for: clean, bright, simple, understated looks.
-3. The Venom (Dark Green Signature) — Rs. 1,499. Core MANTIX identity colorway, dark green. Oversized fit. Best for: bold, standout, statement, expressive streetwear.
+3. The Venom (Dark Green Signature) — Rs. 1,499. Core MANTRIX identity colorway, dark green. Oversized fit. Best for: bold, standout, statement, expressive streetwear.
 `;
 
 export async function POST(request: Request) {
@@ -27,7 +27,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const prompt = `You are MANTIX's style advisor. MANTIX is a Nepali streetwear brand. Here are the three pieces in the first drop:
+  const prompt = `You are MANTRIX's style advisor. MANTRIX is a Nepali streetwear brand. Here are the three pieces in the first drop:
 ${PRODUCTS}
 
 The customer describes their vibe as: "${vibe}"

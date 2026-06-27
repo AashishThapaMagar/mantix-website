@@ -31,7 +31,7 @@ export default function ProfilePage() {
     if (!photo) {
       setError("Please upload your photo."); return;
     }
-    sessionStorage.setItem("mantix_profile", JSON.stringify({ ...form, photo }));
+    sessionStorage.setItem("mantrix_profile", JSON.stringify({ ...form, photo }));
     router.push("/tryon");
   };
 
@@ -80,9 +80,9 @@ export default function ProfilePage() {
         backdropFilter: "blur(28px)",
       }}>
         <a href="/" style={{ display: "flex", alignItems: "center", gap: "16px", textDecoration: "none" }}>
-          <Image src="/mantix-logo.png" alt="MANTIX" width={42} height={42}
+          <Image src="/mantrix-logo.png" alt="MANTRIX" width={42} height={42}
             style={{ filter: "drop-shadow(0 0 14px rgba(74,222,128,0.55))" }} />
-          <div className="syncopate" style={{ fontSize: "0.88rem", color: "#4ade80", letterSpacing: "0.34em" }}>MANTIX</div>
+          <div className="syncopate" style={{ fontSize: "0.88rem", color: "#4ade80", letterSpacing: "0.34em" }}>MANTRIX</div>
         </a>
         <div className="jost" style={{ fontSize: "0.62rem", color: "#7e9085", letterSpacing: "0.3em", textTransform: "uppercase" }}>
           Virtual Try-On
@@ -179,7 +179,7 @@ Plain background works best<br />
           </div>
 
           <p className="jost" style={{ fontSize: "0.48rem", color: "#6f8276", letterSpacing: "0.2em", textAlign: "center", textTransform: "uppercase" }}>
-            Your photo is never stored · Used only for AI generation · MANTIX
+            Your photo is never stored · Used only for AI generation · MANTRIX
           </p>
         </div>
       </main>
